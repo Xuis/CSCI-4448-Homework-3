@@ -36,3 +36,6 @@ MAX_TOOLS .
 NUM_WORDS  
 
 </p>
+
+All classes and methods have comment before in ''' '''
+All strings use " "

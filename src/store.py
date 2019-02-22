@@ -3,7 +3,7 @@
 # Store "has-a" Customer 
 # Store tracks Rentals (invoices) and Inventory
 # =============================================================================
-from src.tools import ConcreteTool, PaintingTool, PlumbingTool, WoodworkTool, YardworkTool
+from tools import ConcreteTool, PaintingTool, PlumbingTool, WoodworkTool, YardworkTool
 
 class Store:
     def __init__(self):
@@ -29,6 +29,8 @@ class Catalog:
 
     def rentTool(self, tool):
         # move tool from on hand to rented
+        return -1
 
     def returnTool(self, tool):
         # move tool from rented to on hand
+        return -1

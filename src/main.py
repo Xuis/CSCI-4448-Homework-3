@@ -5,4 +5,6 @@ simulationDays = 35
 
 hardware = Store()
 
-
+for day in range(simulationDays):
+    hardware.open()
+    hardware.close()

@@ -9,37 +9,22 @@
 class Tools:
     def __init__(self, tool_name):
         self.name = tool_name
-        self.pricePerDay = 0.0
-        self.days = 0
-        
-        
-class PaintingTool(Tools):
-    
-    def __init__(self, tool_name):
-        self.name = tool_name
-        self.pricePerDay = 1.0
-        self.days = 0
-        
-class ConcreteTool(Tools):
-    def __init__(self, tool_name):
-        self.name = tool_name
-        self.pricePerDay = 3.0
-        self.days = 0
-        
-class PlumbingTool(Tools):
-    def __init__(self, tool_name):
-        self.name = tool_name
-        self.pricePerDay = 2.0
-        self.days = 0
-        
-class WoodworkTool(Tools):
-    def __init__(self, tool_name):
-        self.name = tool_name
-        self.pricePerDay = 2.0
-        self.days = 0
+        self.daysTillReturn = 0
+        self.pricePerDay = SetToolPrice.getPrice(self.name)
 
-class YardworkTool(Tools):
-    def __init__(self, tool_name):
-        self.name = tool_name
-        self.pricePerDay = 1.0
-        self.days = 0
+    def returnTool(self):
+        
+
+class SetToolPrice:
+
+    def getPrice(tool):
+        if 'concrete' in tool:
+            return 3.0
+        if "painting" in tool:
+            return 1.0
+        if "plumbing" in tool:
+            return 2.0
+        if "woodwork" in tool:
+            return 2.0
+        if "yardwork" in tool:
+            return 3.0

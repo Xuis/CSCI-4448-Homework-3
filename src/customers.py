@@ -34,10 +34,7 @@ class Customer:
         for tool in self.toolbox:
             tool.days -= 1
             if tool.days == 0:
-                self.returnTool(tool)
-
-    def returnTool(self):
-        # return tool
+                tool.returnTool()
 
 
 class CasualCustomer(Customer):

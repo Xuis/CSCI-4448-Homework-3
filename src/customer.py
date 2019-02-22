@@ -24,17 +24,19 @@ class Customer:
         #takes in catalog, randomly picks from catalog.list
         #randomly chooses numDays
         tools, days = self.get_tool_order()
+        return -1
 
     def payStore(self):
-        
         #send numNights * pricePerTool for tool in list
         #to Store.Income?
+        return -1
 
     def updateToolBox(self):
         for tool in self.toolbox:
             tool.days -= 1
             if tool.days == 0:
                 tool.returnTool()
+        return -1
 
 
 class CasualCustomer(Customer):
@@ -50,6 +52,7 @@ class BusinessCustomer(Customer):
         self.type = 'business'
     def inventoryCheck(self):
         # check to see if store inventory >=3 before ordering
+        return -1
 
 class RegularCustomer(Customer):
     def __init__(self, _name):

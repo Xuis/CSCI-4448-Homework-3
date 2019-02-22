@@ -10,7 +10,6 @@ class Tool:
     def __init__(self, tool_name):
         self.name = tool_name
         self.daysTillReturn = 0
-        self.pricePerDay = SetToolPrice.getPrice(self.name)
 
     def returnTool(self):
         return -1

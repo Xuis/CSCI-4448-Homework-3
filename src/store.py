@@ -9,6 +9,7 @@ from customer import Customer
 
 class Store:
     def __init__(self):
+        '''
         self.name = "Tools 'r' Us"
         self.Ledger = []
         self.Income = 0.00
@@ -16,6 +17,7 @@ class Store:
         self.customers = {'business': [Customer("business_{}".format(i)) for i in range(4)],
                           'regular': [Customer("regular_{}".format(i)) for i in range(3)],
                           'casual': [Customer("casual_{}".format(i))for i in range(3)]}
+        '''
 
     def open(self):
         # go through customers, see if they are renting
@@ -27,6 +29,7 @@ class Store:
 
 class Catalog:
     def __init__(self):
+        '''
         self.onhand = {'concrete': [Tool("concrete_{}".format(i)) for i in range(4)],
                        'painting': [Tool("painting_{}".format(i)) for i in range(4)],
                        'plumbing': [Tool("plumbing_{}".format(i)) for i in range(4)],
@@ -39,7 +42,8 @@ class Catalog:
                        "woodwork": [],
                        "yardword": []
                    }
-        return None
+        '''
+
 
     def rentTool(self, tool):
         # move tool from on hand to rented

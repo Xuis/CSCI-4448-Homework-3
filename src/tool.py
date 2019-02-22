@@ -7,12 +7,9 @@
 
 
 class Tool:
-    def __init__(self, tool_name):
-        self.name = tool_name
+    def __init__(self):
+        self.name = "Unknown Tool"
         self.daysTillReturn = 0
-
-    def returnTool(self):
-        return -1
 
 class PaintingTool(Tool):
 

@@ -1,12 +1,13 @@
-from store import Store
-from tool import Tool
+from src.store import Store
+from src.tool import Tool
 
-simulationDays = 35
+NUM_SIMULATION_DAYS = 35
 
 print ("The program runs!")
 
 hardware = Store()
 
-for day in range(simulationDays):
+for day in range(0, NUM_SIMULATION_DAYS):
+    print("Day {} simulated.".format(day))
     hardware.open()
     hardware.close()

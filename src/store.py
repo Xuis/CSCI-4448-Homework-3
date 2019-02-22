@@ -4,8 +4,8 @@
 # Store tracks Rentals (invoices) and Inventory
 # =============================================================================
 
-from tool import Tool, ConcreteTool, PaintingTool, PlumbingTool, WoodworkTool, YardworkTool
-from customer import Customer
+from src.tool import Tool, ConcreteTool, PaintingTool, PlumbingTool, WoodworkTool, YardworkTool
+from src.customer import Customer
 
 class Store:
     def __init__(self):

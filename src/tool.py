@@ -6,7 +6,7 @@
 # =============================================================================
 
 
-class Tools:
+class Tool:
     def __init__(self, tool_name):
         self.name = tool_name
         self.daysTillReturn = 0

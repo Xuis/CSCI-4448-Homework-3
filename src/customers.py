@@ -10,10 +10,10 @@
 import random
 
 class Customer:
-    def __init__(self, _name):
+    def __init__(self, _name, type):
         self.name = _name
         self.toolbox = []
-        self.type = None
+        self.type = type
 
     def get_tool_order(self):
         return ToolOrder.getOrder(self.type)

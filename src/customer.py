@@ -38,6 +38,12 @@ class Customer:
                 tool.returnTool()
         return -1
 
+    """
+    Returns whether the customer is eligible to rent
+    """
+    def canRent(self):
+        return -1
+
 
 class CasualCustomer(Customer):
     def __init__(self, _name):

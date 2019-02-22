@@ -2,8 +2,8 @@
 
 # =============================================================================
 
-from src.store import Store
-from src.tool import Tool
+from store import Store
+# from src.tool import Tool
 
 NUM_SIMULATION_DAYS = 35
 
@@ -17,7 +17,12 @@ for day in range(0, NUM_SIMULATION_DAYS):
     hardwareStore.open()
     hardwareStore.close()
     # Shuffle CustomerList
-    
+
+    # While (isDay)
+
+    # If tools are available
+        # Customer enters stor
+
     # for customer in list:
         # if customer.toolBox[] :
             # customer.rentTool

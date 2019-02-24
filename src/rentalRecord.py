@@ -10,11 +10,14 @@ Needs (per prompt):
 class RentalRecord:
     def __init__(self):
         # has a list of rentals
+        return None
 
     def getAllRentals(self):
         #returns a list of all the recorded rentals
         # Including finished and unfinished
+        return None
 
     def getCurrentRentals(self):
         # returns a list of currently unfinished rentals
         # Not sure if needed.
+        return None

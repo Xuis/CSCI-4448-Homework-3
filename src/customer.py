@@ -7,64 +7,85 @@
 # Customers interact with Store through renting and returning of tools and 
 # paying for the tools.
 # =============================================================================
-import random
 
 class Customer:
-    def __init__(self, _name, type):
-        self.name = _name
-        self.toolbox = []
-        self.type = type
+	def __init__(self, name):
+		self.name = name
+		self.toolbox = []
+		self.maxNumTools = 3
+		self.minNumTools = 0
+		self.minNights = 0
+		self.maxNights = 7
+		self.currentNumTools = len(self.toolbox)
+		
+		
+	def getNumNightsDesired(self):
+		self.numNightsDesired = random.choice(range(self.minNights, self.maxNights)
+		return self.numNightsDesired;
+		
+	def getNumToolsDesired(self):
+		self.numToolsDesired = random.choice(range(self.minNumTools, self.maxNumTools)
+		return self.numToolsDesired;
+		
+	#how many can they have, how many do they have, how many do they think they want today?
+	
+	def rentTool(self, inventory, Store, day):
+		#a customer will only rent a tool if enough tools are available
+		#and customers can only have 3 at a time
+		numToday = getNumToolsDesired()
+		if len(inventory) >= numToday:			
+			if len(self.toolbox) < self.maxNumTools and numToday + len(toolbox) <= 3:
+				for index in range(numToday):	
+					
+					rentedTool = random.choice(inventory)
+					rentedTool.day = day
+					rentedTool.due = day + self.getNumNightsDesired
+					self.toolbox.append(random.choice(inventory))
+					inventory.remove(rentedTool)
+					#the store needs to keep the rental info and we need to know on which day this was rented, so we can calculate which day it goes back
+					# for instance, if this runs on Day 5 and the maxNights is 5, the tools go back on Day 10
+					# so we do the check (if day 10, customer.ReturnTool() like that
+				
+		#Store.Income.acceptPayment(paymentOwed)
+		#Store.Rental.newRental(
+		
+		return self.toolbox;
+		
+	def payStore(self, toolbox):
+		paymentOwed = 0.0
+		for tool in toolbox:
+			paymentOwed = paymentOwed + tool.pricePerDay
+		
+		return paymentOwed;
 
-    def get_tool_order(self):
-        return ToolOrder.getOrder(self.type)
+		
+	def returnTool(self, inventory, Store):
+		
+		return -1;
+		
+def CasualCustomer(Customer):
+	def __init__(self, name):
+		Customer.__init__(self, name)
+		self.maxNights = 2
+		self.minNights = 1
+		self.maxNumTools = 2
+		
+def BusinessCustomer(Customer):
+	def __init__(self, name):
+		Customer.__init__(self, name)
+		self.maxNights = 5
+		self.minNights = 5
+		
+	def getNumToolsDesired(self):
+		return 3;
 
-    #self.toolbox[] should be list of Tool objects that have attributes
-    #tool.returnDate and tool.name etc or something
-    def rentTool(self, store_catalog, store_inventory):
-        #takes in catalog, randomly picks from catalog.list
-        #randomly chooses numDays
-        tools, days = self.get_tool_order()
-        return -1
-
-    def payStore(self):
-        #send numNights * pricePerTool for tool in list
-        #to Store.Income?
-        return -1
-
-    def updateToolBox(self):
-        for tool in self.toolbox:
-            tool.days -= 1
-            if tool.days == 0:
-                tool.returnTool()
-        return -1
-
-    """
-    Returns whether the customer is eligible to rent
-    """
-    def canRent(self):
-        return -1
-
-
-class CasualCustomer(Customer):
-    def __init__(self, _name):
-        self.name = _name
-        self.toolbox = []
-        self.type = 'casual'
-        
-class BusinessCustomer(Customer):
-    def __init__(self, _name):
-        self.name = _name
-        self.toolbox = []
-        self.type = 'business'
-    def inventoryCheck(self):
-        # check to see if store inventory >=3 before ordering
-        return -1
-
-class RegularCustomer(Customer):
-    def __init__(self, _name):
-        self.name = _name
-        self.toolbox = []
-        self.type = 'regular'
+def RegularCustomer(Customer):
+	def __init__(self, name):
+		Customer.__init__(self, name)
+		self.maxNights = 5
+		self.minNights = 3
+		self.maxNumTools = 3
+		self.minNumTools = 1
 
 class ToolOrder:
 

@@ -60,11 +60,13 @@ class Customer:
 		paymentOwed = tool.pricePerDay * nights
 		return paymentOwed
 
-	def returnTool(self, inventory, day):
+	def returnTool(self, day):
+		tools = []
 		for tool in self.toolbox:
 			if tool.dayDue == day:
-				inventory.returnTool(tool)
+				tools.append(tool)
 				del self.toolbox[tool]
+		return tools
 		
 class CasualCustomer(Customer):
 	def __init__(self, name):

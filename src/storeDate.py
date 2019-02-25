@@ -9,9 +9,12 @@ class StoreDate:
         self.todayInd = 1
         self.worldDuration = 35
 
+    # Return the current day index
     def getDay(self):
         return todayInd
 
+    # simulate one day (increment day)
+    # ?? Should we actually perform the day simulation here?
     def simulateDay(self):
         currDay = self.todayInd
         if currDay > self.worldDuration:

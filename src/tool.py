@@ -13,17 +13,6 @@ class Tool:
     CPD_WOODWORK = 3
     CPD_YARDWORK = 4
 
-    def rentTool(self):
-        self.rented = True
-        
-    def getName(self):
-        return self.name
-        
-    def getCostPerDay(self):
-        return self.costPerDay
-
-    def isRented(self):
-        return self.rented
 # -------------------- New UML Methods -------------------
     def __init__(self, name):
         self.name = name
@@ -39,6 +28,21 @@ class Tool:
 
     def getcostPerDay(self):
         return self.costPerDay
+
+    def rentTool(self):
+        self.rented = True
+
+    def setRented(self, isRented):
+        self.rented = isRented
+        
+    def getName(self):
+        return self.name
+        
+    def getCostPerDay(self):
+        return self.costPerDay
+
+    def isRented(self):
+        return self.rented
 
 
 

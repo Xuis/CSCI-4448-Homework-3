@@ -14,7 +14,7 @@ hardwareStore = Store()
 # Each day:
 for day in range(0, NUM_SIMULATION_DAYS):
     print("Day {} simulated.".format(day))
-    hardwareStore.open()
+    hardwareStore.open(day)
     hardwareStore.close()
     # Shuffle CustomerList
 

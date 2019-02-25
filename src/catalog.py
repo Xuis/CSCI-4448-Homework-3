@@ -30,7 +30,6 @@ class Catalog:
         self.onhand.append(tool)
 
 
- ''' Client list will contain all store client information '''
 class Client:
     def __init__(self):
         self.list = []

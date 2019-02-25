@@ -20,6 +20,9 @@ class Simulator:
         today = currSim.simulateDay()
         while (today != -1):
             print(today)
+            customerList.wakeAllCustomers()
+            customerList.performReturns(today, hardwareStore)
+            customerList.performRentals(today, hardwareStore)
             # hardwareStore.open(day)
             # hardwareStore.close()
             # Shuffle CustomerList
@@ -37,14 +40,4 @@ class Simulator:
                 # tools = customer.returnTool(today)
                 # hardwareStore.inventory.returnTool(tools)
             today = currSim.simulateDay()
-            for customer in customerList.list:
-                tools = customer.returnTools()
-                # hardwareStore.inventory.returnTool(tools)
-            for customer in customerList.list:
-                shopping = customer.shop_today()
-                if shopping:
-                    payment, tools, due = customer.rentTool(hardwareStore.inventory.onhand, today)
-                    hardwareStore.inventory.rentTool(tools)
-                    hardwareStore.createRental(today, customer.name, tools, payment, today, due)
-
         print(hardwareStore.rentals)

@@ -55,14 +55,6 @@ class Customer:
                 payment_due += self.payStore(rentedTool, nights)
         return payment_due, tools, nights + day
 
-    def returnTool(self, day):
-        tools = []
-        for tool in self.toolbox:
-            if tool.dayDue == day:
-                tools.append(tool)
-                del self.toolbox[tool]
-        return tools
-
     # -------------------- New UML Methods -------------------
     def getNumToolsRented(self):
 	    return self.currentNumTools
@@ -70,8 +62,13 @@ class Customer:
     def requestRental(self):
         return -1
 
-    def returnTools(self):
-        return -1
+    def returnTools(self, day):
+        tools = []
+        for tool in self.toolbox:
+            if tool.dayDue == day:
+                tools.append(tool)
+                del self.toolbox[tool]
+        return tools
 
 	# decrement customers balance and incremnt store profits?
     def payStore(self, tool, nights):

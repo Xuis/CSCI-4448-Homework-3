@@ -1,4 +1,4 @@
-from src.customer import BusinessCustomer, CasualCustomer, RegularCustomer
+from customer import BusinessCustomer, CasualCustomer, RegularCustomer
 
 class Client:
     def __init__(self):
@@ -9,3 +9,6 @@ class Client:
             self.list.append((RegularCustomer("regular_{}".format(i))))
 
         self.list.append(RegularCustomer("regular_4"))
+
+    def getClientList(self):
+        return self.list

@@ -4,19 +4,18 @@
 # Store tracks Rentals (invoices) and Inventory
 # =============================================================================
 
+
 class Store:
 	def __init__(self):
 		self.customerList = None
 		self.inventory = None
 		self.rentals = {}
 	
-	"""
 	def __init__(self, catalog, client):
-		self.customerList = client.List
+		self.customerList = client.getClientList()
 		self.inventory = catalog
 		self.month = [i for i in range(35)]
 		self.rentals = {}
-		"""
 
 	
 	def open(self, day):

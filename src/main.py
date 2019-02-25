@@ -9,6 +9,8 @@ NUM_SIMULATION_DAYS = 35
 
 print ("The program runs!")
 
+
+
 hardwareStore = Store()
 
 # Each day:

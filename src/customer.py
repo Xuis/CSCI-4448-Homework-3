@@ -9,6 +9,8 @@
 # =============================================================================
 
 import numpy as np
+
+
 class Customer:
 	def __init__(self, name):
 		self.name = name
@@ -20,18 +22,20 @@ class Customer:
 		self.currentNumTools = len(self.toolbox)
 
 	def shop_today(self):
-		''' returns true false for if the customer wants to shop today. The customer's choice to shop is based on
-		 how many tools are in their toolbox. This will be run AFTER returns have been made.'''
-		shopping = np.random.choice([1,0],1, p=[.5/self.currentNumTools, 1-(.5/self.currentNumTools)])
-		return self
+		# probability to shop based on # of tools in toolbox
+		if self.currentNumTools == 3:
+			return 0
+		else:
+			shopping = np.random.choice([1, 0], 1, p=[.5/self.currentNumTools, 1-(.5/self.currentNumTools)])
+			return shopping
 		
 		
 	def getNumNightsDesired(self):
-		self.numNightsDesired = np.random.choice(range(self.minNights, self.maxNights)
+		self.numNightsDesired = np.random.choice(range(self.minNights, self.maxNights))
 		return self.numNightsDesired
 		
 	def getNumToolsDesired(self):
-		self.numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools)
+		self.numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools))
 		return self.numToolsDesired
 		
 	#how many can they have, how many do they have, how many do they think they want today?
@@ -39,7 +43,6 @@ class Customer:
 	def rentTool(self, inventory, Store, day):
 		#a customer will only rent a tool if enough tools are available
 		#and customers can only have 3 at a time
-		numToday = getNumToolsDesired()
 		if len(inventory) >= numToday:			
 			if len(self.toolbox) < self.maxNumTools and numToday + len(toolbox) <= 3:
 				for index in range(numToday):	
@@ -70,14 +73,14 @@ class Customer:
 		
 		return -1;
 		
-def CasualCustomer(Customer):
+class CasualCustomer(Customer):
 	def __init__(self, name):
 		Customer.__init__(self, name)
 		self.maxNights = 2
 		self.minNights = 1
 		self.maxNumTools = 2
 		
-def BusinessCustomer(Customer):
+class BusinessCustomer(Customer):
 	def __init__(self, name):
 		Customer.__init__(self, name)
 		self.maxNights = 5
@@ -86,7 +89,7 @@ def BusinessCustomer(Customer):
 	def getNumToolsDesired(self):
 		return 3;
 
-def RegularCustomer(Customer):
+class RegularCustomer(Customer):
 	def __init__(self, name):
 		Customer.__init__(self, name)
 		self.maxNights = 5

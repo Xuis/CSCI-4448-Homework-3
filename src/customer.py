@@ -52,14 +52,17 @@ class Customer:
 				self.toolbox.append(np.random.choice(inventory))
 				inventory.rentTool(rentedTool)
 				payment_due += self.paystore(rentedTool, nights)
+		return payment_due
 		
 	def payStore(self, tool, nights):
 		paymentOwed = tool.pricePerDay * nights
 		return paymentOwed
 
-		
-	def returnTool(self, inventory, Store):
-		continue
+	def returnTool(self, inventory, day):
+		for tool in self.toolbox:
+			if tool.dayDue == day:
+				inventory.returnTool(tool)
+				del self.toolbox[tool]
 		
 class CasualCustomer(Customer):
 	def __init__(self, name):

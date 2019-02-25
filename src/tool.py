@@ -12,51 +12,50 @@ class Tool:
         self.rented = False
         self.costPerDay = 0
         self.dayRented = 0
-        self.dayDue = 0        
+        self.dayDue = 0
+        self.costPerDay = 0
         
     def rentTool(self):
-        return self.rented = True;
+        self.rented = True
         
     def getName(self):
-        return self.name;
+        return self.name
         
     def getCostPerDay(self):
-        return self.costPerDay;
-        
-    def setCostPerDay(self, newCost):
-        self.costPerDay = newCost;
-        
+        return self.costPerDay
+
     def isRented(self):
-        return self.rented;
+        return self.rented
+
 
 class PaintingTool(Tool):
-	def __init__(self, name)
-		Tool.__init__(self, name)
-		self.rented = False
-		self.costPerDay = 2
-		
-			
+     def setCostPerDay(self):
+         self.costPerDay= CostPerDay.paint
+
+
 class ConcreteTool(Tool):
-	def __init__(self, name):
-		Tool.__init__(self, name)
-		self.rented = False
-		self.costPerDay = 10
-		
+	def setCostPerDay(self):
+		self.costPerDay = CostPerDay.concrete
+
+
 class PlumbingTool(Tool):
-	def __init__(self, name):
-		Tool.__init__(self, name)
-		self.rented = False
-		self.costPerDay = 5
+	def setCostPerDay(self):
+		self.costPerDay = CostPerDay.plumbing
+
 
 class WoodWorkTool(Tool):
-	def __init__(self, name):
-		Tool.__init__(self, name)
-		self.rented = False
-		self.costPerDay = 3
-		
+	def setCostPerDay(self):
+		self.costPerDay = CostPerDay.woodwork
+
+
 class YardWorkTool(Tool):
-	def __init__(self, name):
-		Tool.__init__(self, name)
-		self.rented = False
-		self.costPerDay = 4
-		
+	def setCostPerDay(self):
+		self.costPerDay = CostPerDay.yardwork
+
+
+class CostPerDay:
+	paint = 2
+	concrete = 10
+	plumbing = 5
+	woodwork = 3
+	yardwork = 4

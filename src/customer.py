@@ -8,6 +8,7 @@
 # paying for the tools.
 # =============================================================================
 
+import numpy as np
 class Customer:
 	def __init__(self, name):
 		self.name = name
@@ -17,15 +18,21 @@ class Customer:
 		self.minNights = 0
 		self.maxNights = 7
 		self.currentNumTools = len(self.toolbox)
+
+	def shop_today(self):
+		''' returns true false for if the customer wants to shop today. The customer's choice to shop is based on
+		 how many tools are in their toolbox. This will be run AFTER returns have been made.'''
+		shopping = np.random.choice([1,0],1, p=[.5/self.currentNumTools, 1-(.5/self.currentNumTools)])
+		return self
 		
 		
 	def getNumNightsDesired(self):
-		self.numNightsDesired = random.choice(range(self.minNights, self.maxNights)
-		return self.numNightsDesired;
+		self.numNightsDesired = np.random.choice(range(self.minNights, self.maxNights)
+		return self.numNightsDesired
 		
 	def getNumToolsDesired(self):
-		self.numToolsDesired = random.choice(range(self.minNumTools, self.maxNumTools)
-		return self.numToolsDesired;
+		self.numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools)
+		return self.numToolsDesired
 		
 	#how many can they have, how many do they have, how many do they think they want today?
 	

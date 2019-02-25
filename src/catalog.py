@@ -29,7 +29,7 @@ class Catalog:
         self.create_catalog()
         self.onloan = []
         self.create_catalog
-        
+
     def create_catalog(self):
         for i in range(4):
             self.onhand.append(ConcreteTool("concrete_{}".format(i)))
@@ -40,7 +40,7 @@ class Catalog:
         return self.onhand
 
     def getToolCost(self, tool):
-        return -1
+        return tool.getCostPerDay()
 
-    def getToolAvail(self):
-        return -1
+    def getToolAvail(self, tool):
+        return tool.isRented()

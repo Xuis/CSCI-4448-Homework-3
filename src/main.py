@@ -12,11 +12,13 @@ NUM_SIMULATION_DAYS = 35
 
 print ("The program runs!")
 
+
 # hardwareStore = Store()
 # catalog = Catalog()
 # client = Client()
 
 # hardwareStore = Store(catalog, client)
+
 # Each day:
 currSim = StoreDate()
 today = currSim.simulateDay()

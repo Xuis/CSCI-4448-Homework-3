@@ -34,7 +34,8 @@ class Rental:
         # Retuns a "report" of the rental in a string formself.
         # for use in print() statements
         toolsString = ""
-        for tool in tools:
+        for tool in tools:  # formats all the tool names into a string.
             toolsString += (tool.getName()  + " ")
+            toolsString = toolsString.rstrip()
         string = customer.name + " rented [" + toolsString + "] for " + self.days + " days which totaled to $" +  self.cost
         return string

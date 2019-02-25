@@ -8,7 +8,7 @@ class Catalog:
     def __init__(self):
 
         self.onhand = []
-        self.create_catalog()()
+        self.create_catalog()
         self.onloan = []
 
     def create_catalog(self):
@@ -24,12 +24,16 @@ class Catalog:
     def rentTool(self, tools):
         # move tool from on hand to rented
         for tool in tools:
-            del self.onhand[tool]
+            for i in range(len(self.onhand)-1):
+                if tool.name == self.onhand[i].name:
+                    self.onhand.pop(i)
+                    break
             self.onloan.append(tool)
 
     def returnTool(self, tools):
         for tool in tools:
-            del self.onloan[tool]
+            for i in range(len(self.onloan)-1):
+                if tool.name == self.onloan[i].name:
+                    self.onloan.pop(i)
+                    break
             self.onhand.append(tool)
-
-

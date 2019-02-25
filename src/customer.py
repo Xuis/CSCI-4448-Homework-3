@@ -46,6 +46,7 @@ class Customer:
         return payment_due, tools, nights + day
 
     # -------------------- New UML Methods -------------------
+    # Constructor for Customer
     def __init__(self, name):
         self.name = name
         self.toolbox = []
@@ -54,13 +55,16 @@ class Customer:
         self.minNights = 0
         self.maxNights = 7
         self.currentNumTools = len(self.toolbox)
-    
+
+    # return number of tools customer has rented
     def getNumToolsRented(self):
 	    return self.currentNumTools
 
+    # Return the number of rentals the customer wants to make and what date they want to return the tools
     def requestRental(self):
         return -1
 
+    # return tools a customer has due on the specified day
     def returnTools(self, day):
         tools = []
         for tool in self.toolbox:
@@ -90,7 +94,7 @@ class BusinessCustomer(Customer):
         self.minNights = 5
 
     def getNumToolsDesired(self):
-        return 3;
+        return 3
 
 
 class RegularCustomer(Customer):
@@ -100,14 +104,3 @@ class RegularCustomer(Customer):
         self.minNights = 3
         self.maxNumTools = 3
         self.minNumTools = 1
-
-
-class ToolOrder:
-
-    def getOrder(type):
-        if type == 'business':
-            return 3, 7
-        if type == 'casual':
-            return random.randint(1, 2), random.randint(1, 2)
-        if type == 'regular':
-            return random.randint(1, 3), random.randint(3, 5)

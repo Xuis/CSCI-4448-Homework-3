@@ -1,4 +1,4 @@
-from customer import BusinessCustomer, CasualCustomer, RegularCustomer
+from src.customer import BusinessCustomer, CasualCustomer, RegularCustomer
 
 class Client:
     def __init__(self):

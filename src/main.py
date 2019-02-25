@@ -3,6 +3,7 @@ from catalog import Catalog
 from client import Client
 from storeDate import StoreDate
 
+
 NUM_SIMULATION_DAYS = 35
 
 print ("The program runs!")
@@ -25,6 +26,8 @@ while (today != -1):
     for customer in client.list:
         shopping = customer.shop_today()
         if shopping:
-            payment, tools, due = customer.rentTool(today)
+            payment, tools, due = customer.rentTool(hardwareStore.inventory.onhand, today)
             hardwareStore.inventory.rentTool(tools)
-            hardwareStore.createRental(customer.name, tools, payment, today, due)
+            hardwareStore.createRental(today, customer.name, tools, payment, today, due)
+
+print(hardwareStore.rentals)

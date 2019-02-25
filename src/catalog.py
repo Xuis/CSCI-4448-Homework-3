@@ -26,8 +26,9 @@ class Catalog:
         del self.onhand[tool]
         self.onloan.append(tool)
 
-    def returnTool(self, tool):
-        del self.onloan[tool]
-        self.onhand.append(tool)
+    def returnTool(self, tools):
+        for tool in tools:
+            del self.onloan[tool]
+            self.onhand.append(tool)
 
 

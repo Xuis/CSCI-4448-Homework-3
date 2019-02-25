@@ -4,16 +4,16 @@
 # Store tracks Rentals (invoices) and Inventory
 # =============================================================================
 
+
 class Store:
     def __init__(self, catalog, client):
-        self.customerList = client.List
+        self.customerList = client.list
         self.inventory = catalog
         self.month = [i for i in range(35)]
         self.rentals = {}
 
     def open(self, day):
         for customer in self.customerList:
-            customer.returnTool(day)
             shopping = customer.shop_today()
             if shopping:
                 payment, tools, due = customer.rentTool(self.Inventory, day)
@@ -26,4 +26,3 @@ class Store:
                              "Payment": rentalTotal,
                              "Day Rented": dayRented,
                              "Due Date": dayDue}
-		

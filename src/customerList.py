@@ -6,6 +6,7 @@ class CustomerList:
         return self.list
 
 # -------------------- New UML Methods -------------------
+    # Constructor for customer
     def __init__(self):
         self.list = []
         for i in range(3):
@@ -16,6 +17,7 @@ class CustomerList:
         self.list.append(RegularCustomer("regular_4"))
 
     # go through all customers and create a queue for rentals and a queue for returns
+    # This method determines how the rental and return queues are organized (which customers will get to go first)
     def wakeAllCustomers(self):
         return -1
 
@@ -24,7 +26,6 @@ class CustomerList:
         for customer in self.list:
                 tools = customer.returnTools(today)
                 hardwareStore.getInventory().returnTool(tools)
-        return -1
 
     # All queued customers perform rentals
     def performRentals(self, today, hardwareStore):
@@ -34,5 +35,3 @@ class CustomerList:
                     payment, tools, due = customer.rentTool(hardwareStore.inventory.onhand, today)
                     hardwareStore.inventory.rentTool(tools)
                     hardwareStore.createRental(today, customer.name, tools, payment, today, due)
-
-        return -1

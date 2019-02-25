@@ -1,4 +1,3 @@
-# =============================================================================
 
 # =============================================================================
 
@@ -15,7 +14,6 @@ print ("The program runs!")
 catalog = Catalog()
 catalog.create_catalog()
 client = Client()
-
 hardwareStore = Store(catalog, client)
 
 # Each day:
@@ -36,7 +34,16 @@ while (today != -1):
         # if customer.toolBox.tool is Due:
             # customer.returnTool
 
-    today = currSim.simulateDay()
     # for customer in client.list:
         # tools = customer.returnTool(today)
         # hardwareStore.inventory.returnTool(tools)
+    today = currSim.simulateDay()
+    for customer in client.list:
+        tools = customer.returnTool(today)
+        hardwareStore.inventory.returnTool(tools)
+    for customer in client.list:
+        shopping = customer.shop_today()
+        if shopping:
+            payment, tools, due = customer.rentTool(today)
+            hardwareStore.inventory.rentTool(tools)
+            hardwareStore.createRental(customer.name, tools, payment, today, due)

@@ -9,17 +9,11 @@
 from src.catalog import Catalog, Client
 class Store:
 	def __init__(self):
-<<<<<<< HEAD
 		self.customerList = Client.List
 		self.inventory = Catalog.onhand
 		self.day = [i for i in range(35)]
 		self.rentals = []
-=======
-		self.CustomerList = Client.List
-		self.Inventory = Catalog
-		self.month = [i for i in range(35)]
-		self.Rentals = []
->>>>>>> ec7845bc13c8e947c9dcba252692fcbd60b7bdbb
+
 	
 		
 	def open(self, day):

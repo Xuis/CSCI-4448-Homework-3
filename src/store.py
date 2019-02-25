@@ -10,18 +10,19 @@ from src.catalog import Catalog, Client
 class Store:
 	def __init__(self):
 		self.CustomerList = Client.List
-		self.Inventory = Catalog.onhand
-		self.day = [i for i in range(35)]
+		self.Inventory = Catalog
+		self.month = [i for i in range(35)]
 		self.Rentals = []
 	
 		
-	def open(self):
+	def open(self, day):
 		#need a random  number of customers daily
         # updating so that customers choose when to come in based on number of tools in toolbox.
 		# TODO this should occur after returns.
 		for customer in self.CustomerList:
 			shopping = customer.shop_today()
 			if shopping:
+				customer.rentTool(self.Inventory, day)
 
 		
 		dailyProfit = 0

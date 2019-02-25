@@ -29,29 +29,27 @@ class Customer:
 			shopping = np.random.choice([1, 0], 1, p=[.5/self.currentNumTools, 1-(.5/self.currentNumTools)])
 			return shopping
 		
-		
 	def getNumNightsDesired(self):
-		self.numNightsDesired = np.random.choice(range(self.minNights, self.maxNights))
-		return self.numNightsDesired
+		numNightsDesired = np.random.choice(range(self.minNights, self.maxNights))
+		return numNightsDesired
 		
 	def getNumToolsDesired(self):
-		self.numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools))
-		return self.numToolsDesired
-		
-	#how many can they have, how many do they have, how many do they think they want today?
+		numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools- self.currentNumTools))
+		return numToolsDesired
+
 	
-	def rentTool(self, inventory, Store, day):
+	def rentTool(self, inventory, day):
 		#a customer will only rent a tool if enough tools are available
 		#and customers can only have 3 at a time
-		if len(inventory) >= numToday:			
-			if len(self.toolbox) < self.maxNumTools and numToday + len(toolbox) <= 3:
-				for index in range(numToday):	
-					
-					rentedTool = random.choice(inventory)
-					rentedTool.day = day
-					rentedTool.due = day + self.getNumNightsDesired
-					self.toolbox.append(random.choice(inventory))
-					inventory.remove(rentedTool)
+		nights = self.getNumNightsDesired()
+		numToday = self.getNumToolsDesired()
+		if len(inventory) >= numToday:
+			for index in range(numToday):
+				rentedTool = np.random.choice(inventory)
+				rentedTool.day = day
+				rentedTool.due = day + self.getNumNightsDesired
+				self.toolbox.append(np.random.choice(inventory))
+				inventory.rentTool(rentedTool)
 					#the store needs to keep the rental info and we need to know on which day this was rented, so we can calculate which day it goes back
 					# for instance, if this runs on Day 5 and the maxNights is 5, the tools go back on Day 10
 					# so we do the check (if day 10, customer.ReturnTool() like that

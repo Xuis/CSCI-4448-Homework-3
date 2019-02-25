@@ -6,7 +6,6 @@
 
 
 class Store:
-<<<<<<< HEAD
 	def __init__(self):
 		self.customerList = None
 		self.inventory = None

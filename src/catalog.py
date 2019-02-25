@@ -21,10 +21,11 @@ class Catalog:
         return self.onhand
 
 
-    def rentTool(self, tool):
+    def rentTool(self, tools):
         # move tool from on hand to rented
-        del self.onhand[tool]
-        self.onloan.append(tool)
+        for tool in tools:
+            del self.onhand[tool]
+            self.onloan.append(tool)
 
     def returnTool(self, tools):
         for tool in tools:

@@ -52,7 +52,6 @@ class Customer:
 				rentedTool.day = day
 				rentedTool.due = day + self.getNumNightsDesired
 				self.toolbox.append(np.random.choice(inventory))
-				inventory.rentTool(rentedTool)
 				payment_due += self.paystore(rentedTool, nights)
 		return payment_due, tools, nights+day
 		

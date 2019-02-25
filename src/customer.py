@@ -10,17 +10,7 @@
 
 import numpy as np
 
-
 class Customer:
-    def __init__(self, name):
-        self.name = name
-        self.toolbox = []
-        self.maxNumTools = 3
-        self.minNumTools = 0
-        self.minNights = 0
-        self.maxNights = 7
-        self.currentNumTools = len(self.toolbox)
-
     def shop_today(self):
         # probability to shop based on # of tools in toolbox
         if self.currentNumTools == 3:
@@ -56,6 +46,15 @@ class Customer:
         return payment_due, tools, nights + day
 
     # -------------------- New UML Methods -------------------
+    def __init__(self, name):
+        self.name = name
+        self.toolbox = []
+        self.maxNumTools = 3
+        self.minNumTools = 0
+        self.minNights = 0
+        self.maxNights = 7
+        self.currentNumTools = len(self.toolbox)
+    
     def getNumToolsRented(self):
 	    return self.currentNumTools
 

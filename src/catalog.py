@@ -14,7 +14,6 @@ class Catalog:
             self.onhand.append(YardWorkTool("yardwork_{}".format(i)))
         return self.onhand
 
-
     def rentTool(self, tools):
         # move tool from on hand to rented
         for tool in tools:

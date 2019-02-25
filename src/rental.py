@@ -16,6 +16,7 @@ Take in list of tools and record rental date and must return date
 """
 
 class Rental:
+# -------------------- New UML Methods -------------------
     def __init__(self, customer, date, tools, daysRented):
         self.customer = customer
         self.date = date #TODO Get the current Date automatically
@@ -26,8 +27,6 @@ class Rental:
         self.cost = 0
         for tool in tools:
             self.cost += tool.getCostPerDay() * self.days
-
-# -------------------- New UML Methods -------------------
 
     def getDueDate(self):
         return self.date + self.days

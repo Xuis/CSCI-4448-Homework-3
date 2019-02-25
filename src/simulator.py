@@ -23,21 +23,5 @@ class Simulator:
             customerList.wakeAllCustomers()
             customerList.performReturns(today, hardwareStore)
             customerList.performRentals(today, hardwareStore)
-            # hardwareStore.open(day)
-            # hardwareStore.close()
-            # Shuffle CustomerList
-
-            # If tools are available
-                # Customer enters stor
-
-            # for customer in list:
-                # if customer.toolBox[] :
-                    # customer.rentTool
-                # if customer.toolBox.tool is Due:
-                    # customer.returnTool
-
-            # for customer in client.list:
-                # tools = customer.returnTool(today)
-                # hardwareStore.inventory.returnTool(tools)
             today = currSim.simulateDay()
-        print(hardwareStore.rentals)
+        print(hardwareStore.getRentals())

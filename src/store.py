@@ -29,3 +29,6 @@ class Store:
 
 	def getInventory(self):
 		return self.inventory
+
+	def getRentals(self):
+		return self.rentals

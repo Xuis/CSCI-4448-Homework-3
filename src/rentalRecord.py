@@ -8,9 +8,6 @@ Needs (per prompt):
 """
 
 class RentalRecord:
-    def __init__(self):
-        # has a list of rentals
-        return None
 
     def getAllRentals(self):
         #returns a list of all the recorded rentals
@@ -23,6 +20,9 @@ class RentalRecord:
         return None
 
 # -------------------- New UML Methods -------------------
+    def __init__(self):
+        # has a list of rentals
+        return None
 
     def addRental(self):
         return -1

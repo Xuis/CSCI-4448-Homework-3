@@ -4,11 +4,10 @@
 
 class StoreDate:
     # World duration will be the duration of the simulation
+# -------------------- New UML Methods -------------------
     def __init__(self):
         self.todayInd = 1
         self.worldDuration = 35
-
-# -------------------- New UML Methods -------------------
 
     def getDay(self):
         return todayInd

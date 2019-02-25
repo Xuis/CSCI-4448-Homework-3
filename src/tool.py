@@ -7,14 +7,6 @@
 
 
 class Tool:
-    def __init__(self, name):
-        self.name = name
-        self.rented = False
-        self.costPerDay = 0
-        self.dayRented = 0
-        self.dayDue = 0
-        self.costPerDay = 0
-        
     def rentTool(self):
         self.rented = True
         
@@ -27,6 +19,14 @@ class Tool:
     def isRented(self):
         return self.rented
 # -------------------- New UML Methods -------------------
+    def __init__(self, name):
+        self.name = name
+        self.rented = False
+        self.costPerDay = 0
+        self.dayRented = 0
+        self.dayDue = 0
+        self.costPerDay = 0
+
     def getCurrentRenter(self):
         return -1
 

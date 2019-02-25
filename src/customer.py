@@ -43,6 +43,7 @@ class Customer:
 		#and customers can only have 3 at a time
 		nights = self.getNumNightsDesired()
 		numToday = self.getNumToolsDesired()
+		payment_due = 0
 		if len(inventory) >= numToday:
 			for index in range(numToday):
 				rentedTool = np.random.choice(inventory)
@@ -50,26 +51,15 @@ class Customer:
 				rentedTool.due = day + self.getNumNightsDesired
 				self.toolbox.append(np.random.choice(inventory))
 				inventory.rentTool(rentedTool)
-					#the store needs to keep the rental info and we need to know on which day this was rented, so we can calculate which day it goes back
-					# for instance, if this runs on Day 5 and the maxNights is 5, the tools go back on Day 10
-					# so we do the check (if day 10, customer.ReturnTool() like that
-				
-		#Store.Income.acceptPayment(paymentOwed)
-		#Store.Rental.newRental(
+				payment_due += self.paystore(rentedTool, nights)
 		
-		return self.toolbox;
-		
-	def payStore(self, toolbox):
-		paymentOwed = 0.0
-		for tool in toolbox:
-			paymentOwed = paymentOwed + tool.pricePerDay
-		
-		return paymentOwed;
+	def payStore(self, tool, nights):
+		paymentOwed = tool.pricePerDay * nights
+		return paymentOwed
 
 		
 	def returnTool(self, inventory, Store):
-		
-		return -1;
+		continue
 		
 class CasualCustomer(Customer):
 	def __init__(self, name):

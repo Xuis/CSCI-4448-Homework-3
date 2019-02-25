@@ -4,6 +4,7 @@
 # Store tracks Rentals (invoices) and Inventory
 # =============================================================================
 
+
 class Store:
     def __init__(self, catalog, client):
         self.customerList = client.List

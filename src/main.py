@@ -8,7 +8,6 @@ NUM_SIMULATION_DAYS = 35
 print ("The program runs!")
 
 
-hardwareStore = Store()
 catalog = Catalog()
 client = Client()
 

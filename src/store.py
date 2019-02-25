@@ -12,7 +12,7 @@ class Store:
 		self.rentals = {}
 	
 	def __init__(self, catalog, client):
-		self.customerList = client.getClientList()
+		self.customerList = client.getCustomerList()
 		self.inventory = catalog
 		self.month = [i for i in range(35)]
 		self.rentals = {}

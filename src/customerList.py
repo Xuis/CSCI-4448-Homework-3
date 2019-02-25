@@ -1,6 +1,6 @@
 from customer import BusinessCustomer, CasualCustomer, RegularCustomer
 
-class Client:
+class CustomerList:
     def __init__(self):
         self.list = []
         for i in range(3):

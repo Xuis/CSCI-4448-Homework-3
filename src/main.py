@@ -1,23 +1,36 @@
-from src.store import Store
-from src.catalog import Catalog
-from src.client import Client
+# =============================================================================
+
+# =============================================================================
+
+# from src.tool import Tool
+from storeDate import StoreDate
+# from store import Store
+# from catalog import Catalog
+# from client import Client
 
 NUM_SIMULATION_DAYS = 35
 
 print ("The program runs!")
 
-catalog = Catalog()
-client = Client()
 
-hardwareStore = Store(catalog, client)
+# hardwareStore = Store()
+# catalog = Catalog()
+# client = Client()
+
+# hardwareStore = Store(catalog, client)
+
 # Each day:
-for day in range(0, NUM_SIMULATION_DAYS):
-    print("Day {} simulated.".format(day))
-    hardwareStore.open(day)
-    hardwareStore.close()
+currSim = StoreDate()
+today = currSim.simulateDay()
+while (today != -1):
+    print(today)
+    today = currSim.simulateDay()
+    # hardwareStore.open(day)
+    # hardwareStore.close()
     # Shuffle CustomerList
 
-    # While (isDay)
+
+
 
     # If tools are available
         # Customer enters stor

@@ -27,6 +27,8 @@ class Rental:
         for tool in tools:
             self.cost += tool.getCostPerDay() * self.days
 
+# -------------------- New UML Methods -------------------
+
     def getDueDate(self):
         return self.date + self.days
 

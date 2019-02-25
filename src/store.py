@@ -26,7 +26,9 @@ class Store:
 				payment, tools, due = customer.rentTool(self.Inventory, day)
 				self.createRental(day, customer.name, tools, payment, day, due)
 
-
+# -------------------- New UML Methods -------------------
 	def createRental(self, day, customerName, toolsRented, rentalTotal, dayRented, dayDue):
 		self.rentals[day] = {"Customer Name": customerName, "Tools": toolsRented, "Payment": rentalTotal, "Day Rented": dayRented, "Due Date": dayDue}
 		
+	def requestPayment(self):
+		return -1

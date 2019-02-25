@@ -67,6 +67,20 @@ class Customer:
                 del self.toolbox[tool]
         return tools
 
+# -------------------- New UML Methods -------------------
+	def getNumToolsRented(self):
+		return -1
+
+	def requestRental(self):
+		return -1
+
+	def returnTool(self):
+		return -1
+
+	# decrement customers balance and incremnt store profits?
+	def payStore(self):
+		return -1
+
 
 class CasualCustomer(Customer):
     def __init__(self, name):

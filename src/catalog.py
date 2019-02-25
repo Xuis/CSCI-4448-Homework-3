@@ -37,3 +37,11 @@ class Catalog:
                     self.onloan.pop(i)
                     break
             self.onhand.append(tool)
+
+
+# -------------------- New UML Methods -------------------
+    def getToolCost(self):
+        return -1
+
+    def getToolAvail(self):
+        return -1

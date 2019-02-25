@@ -26,6 +26,9 @@ class Tool:
 
     def isRented(self):
         return self.rented
+# -------------------- New UML Methods -------------------
+    def getCurrentRenter(self):
+        return -1
 
 
 class PaintingTool(Tool):

@@ -10,5 +10,19 @@ class Client:
 
         self.list.append(RegularCustomer("regular_4"))
 
-    def getClientList(self):
+    def getCustomerList(self):
         return self.list
+
+# -------------------- New UML Methods -------------------
+
+    # go through all customers and create a queue for rentals and a queue for returns
+    def wakeAllCustomers(self):
+        return -1
+
+    # All queued customers return tools
+    def performReturns(self):
+        return -1
+
+    # All queued customers perform rentals
+    def performRental(self):
+        return -1

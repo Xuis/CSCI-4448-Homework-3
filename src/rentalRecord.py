@@ -21,3 +21,15 @@ class RentalRecord:
         # returns a list of currently unfinished rentals
         # Not sure if needed.
         return None
+
+# -------------------- New UML Methods -------------------
+
+    def addRental(self):
+        return -1
+
+    def getAllRentals(self):
+        return -1
+
+    # Not sure we need this or if this is the right place.
+    def getCurrentRentals(self):
+        return -1

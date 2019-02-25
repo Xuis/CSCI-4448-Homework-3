@@ -8,6 +8,8 @@ class StoreDate:
         self.todayInd = 1
         self.worldDuration = 35
 
+# -------------------- New UML Methods -------------------
+
     def getDay(self):
         return todayInd
 

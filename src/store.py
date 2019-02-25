@@ -7,7 +7,7 @@
 
 class Store:
     def __init__(self, catalog, client):
-        self.customerList = client.List
+        self.customerList = client.list
         self.inventory = catalog
         self.month = [i for i in range(35)]
         self.rentals = {}
@@ -26,4 +26,3 @@ class Store:
                              "Payment": rentalTotal,
                              "Day Rented": dayRented,
                              "Due Date": dayDue}
-		

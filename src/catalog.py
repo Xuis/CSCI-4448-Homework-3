@@ -11,7 +11,7 @@ class Catalog:
         self.onhand = self.create_catalog
         self.onloan = []
 
-
+    def create_catalog(self):
         for i in range(4):
             self.onhand.append(ConcreteTool("concrete_{}".format(i)))
             self.onhand.append(PaintingTool("painting_{}".format(i)))
@@ -25,8 +25,9 @@ class Catalog:
         del self.onhand[tool]
         self.onloan.append(tool)
 
-    def returnTool(self, tool):
-        del self.onloan[tool]
-        self.onhand.append(tool)
+    def returnTool(self, tools):
+        for tool in tools:
+            del self.onloan[tool]
+            self.onhand.append(tool)
 
 

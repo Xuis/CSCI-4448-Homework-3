@@ -13,7 +13,6 @@ class Store:
 
     def open(self, day):
         for customer in self.customerList:
-            customer.returnTool(day)
             shopping = customer.shop_today()
             if shopping:
                 payment, tools, due = customer.rentTool(self.Inventory, day)

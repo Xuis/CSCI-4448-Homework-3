@@ -1,7 +1,9 @@
+
 from store import Store
 from catalog import Catalog
 from client import Client
 from storeDate import StoreDate
+
 
 NUM_SIMULATION_DAYS = 35
 

@@ -1,7 +1,7 @@
-from src.store import Store
-from src.catalog import Catalog
-from src.client import Client
-from src.storeDate import StoreDate
+from store import Store
+from catalog import Catalog
+from client import Client
+from storeDate import StoreDate
 
 NUM_SIMULATION_DAYS = 35
 
@@ -22,3 +22,9 @@ while (today != -1):
     for customer in client.list:
         tools = customer.returnTool(today)
         hardwareStore.inventory.returnTool(tools)
+    for customer in client.list:
+        shopping = customer.shop_today()
+        if shopping:
+            payment, tools, due = customer.rentTool(today)
+            hardwareStore.inventory.rentTool(tools)
+            hardwareStore.createRental(customer.name, tools, payment, today, due)

@@ -5,7 +5,7 @@
 # from src.tool import Tool
 from storeDate import StoreDate
 # from store import Store
-# from catalog import Catalog
+from catalog import Catalog
 # from client import Client
 
 NUM_SIMULATION_DAYS = 35
@@ -14,7 +14,8 @@ print ("The program runs!")
 
 
 # hardwareStore = Store()
-# catalog = Catalog()
+catalog = Catalog()
+catalog.create_catalog()
 # client = Client()
 
 # hardwareStore = Store(catalog, client)

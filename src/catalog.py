@@ -3,12 +3,12 @@ Catalog to contain the 20 tool offerings that the store will rent
 """
 
 from tool import ConcreteTool, PaintingTool, PlumbingTool, WoodWorkTool, YardWorkTool
-from customer import BusinessCustomer, CasualCustomer, RegularCustomer
 
 class Catalog:
     def __init__(self):
 
         self.onhand = []
+        self.create_catalog()()
         self.onloan = []
 
     def create_catalog(self):

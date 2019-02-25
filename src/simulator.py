@@ -11,7 +11,6 @@ class Simulator:
         print ("The program runs!")
 
         catalog = Catalog()
-        catalog.create_catalog()
         customerList = CustomerList()
         hardwareStore = Store(catalog, customerList)
 

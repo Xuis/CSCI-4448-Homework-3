@@ -7,6 +7,12 @@
 
 
 class Tool:
+    CPD_PAINT = 2
+    CPD_CONCRETE = 10
+    CPD_PLUMBING = 5
+    CPD_WOODWORK = 3
+    CPD_YARDWORK = 4
+
     def rentTool(self):
         self.rented = True
         
@@ -24,41 +30,57 @@ class Tool:
         self.rented = False
         self.costPerDay = 0
         self.dayRented = 0
-        self.dayDue = 0
-        self.costPerDay = 0
 
     def getCurrentRenter(self):
         return -1
 
+    def getDayRented(self):
+        return self.dayRented
+
+    def getcostPerDay(self):
+        return self.costPerDay
+
+
 
 class PaintingTool(Tool):
-     def setCostPerDay(self):
-         self.costPerDay= CostPerDay.paint
-
-
+    def __init__(self, name):
+        self.name = name
+        self.rented = False
+        self.costPerDay = self.CPD_PAINT
+        self.dayRented = 0
+        self.dayDue = 0
+        
 class ConcreteTool(Tool):
-	def setCostPerDay(self):
-		self.costPerDay = CostPerDay.concrete
+    def __init__(self, name):
+        self.name = name
+        self.rented = False
+        self.costPerDay = self.CPD_CONCRETE
+        self.dayRented = 0
+        self.dayDue = 0
 
 
 class PlumbingTool(Tool):
-	def setCostPerDay(self):
-		self.costPerDay = CostPerDay.plumbing
+    def __init__(self, name):
+        self.name = name
+        self.rented = False
+        self.costPerDay = self.CPD_PLUMBING
+        self.dayRented = 0
+        self.dayDue = 0
 
 
 class WoodWorkTool(Tool):
-	def setCostPerDay(self):
-		self.costPerDay = CostPerDay.woodwork
+    def __init__(self, name):
+        self.name = name
+        self.rented = False
+        self.costPerDay = self.CPD_WOODWORK
+        self.dayRented = 0
+        self.dayDue = 0
 
 
 class YardWorkTool(Tool):
-	def setCostPerDay(self):
-		self.costPerDay = CostPerDay.yardwork
-
-
-class CostPerDay:
-	paint = 2
-	concrete = 10
-	plumbing = 5
-	woodwork = 3
-	yardwork = 4
+    def __init__(self, name):
+        self.name = name
+        self.rented = False
+        self.costPerDay = self.CPD_YARDWORK
+        self.dayRented = 0
+        self.dayDue = 0

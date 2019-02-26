@@ -30,8 +30,6 @@ class CustomerList:
     # All queued customers perform rentals
     def performRentals(self, today, hardwareStore):
         for customer in self.list:
-                shopping = customer.shop_today()
-                if shopping:
-                    payment, tools, due = customer.rentTool(hardwareStore.inventory.onhand, today)
-                    hardwareStore.inventory.rentTool(tools)
-                    hardwareStore.createRental(today, customer.name, tools, payment, today, due)
+            (numTools, numNights) = customer.requestRental(hardwareStore.getInventory().getOnhand(), today)
+            # hardwareStore.inventory.rentTool(tools)
+            # hardwareStore.createRental(today, customer.name, tools, payment, today, due)

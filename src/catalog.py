@@ -44,3 +44,6 @@ class Catalog:
 
     def getToolAvail(self, tool):
         return tool.isRented()
+
+    def getOnhand(self):
+        return self.onhand

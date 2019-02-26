@@ -16,10 +16,9 @@ class Simulator:
 
         # Each day:
         currSim = StoreDate()
-        today = currSim.simulateDay()
+        today = StoreDate.simulateDay(currSim)
         while (today != -1):
             print(today)
-            customerList.wakeAllCustomers()
             customerList.performReturns(today, hardwareStore)
             customerList.performRentals(today, hardwareStore)
             today = currSim.simulateDay()

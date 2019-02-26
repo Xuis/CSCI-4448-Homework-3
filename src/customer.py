@@ -11,40 +11,6 @@
 import numpy as np
 
 class Customer:
-    def shop_today(self):
-        # probability to shop based on # of tools in toolbox
-        if self.currentNumTools == 3:
-            return 0
-        else:
-            factor = self.currentNumTools + 1
-            shopping = np.random.choice([1, 0], 1, p=[.5 / factor, 1 - (.5 / factor)])
-            return shopping
-
-    def getNumNightsDesired(self):
-        numNightsDesired = np.random.choice(list(range(self.minNights, self.maxNights + 1)))
-        return numNightsDesired
-
-    def getNumToolsDesired(self):
-        numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools - self.currentNumTools))
-        return numToolsDesired
-
-    def rentTool(self, inventory, day):
-        # a customer will only rent a tool if enough tools are available
-        # and customers can only have 3 at a time
-        nights = self.getNumNightsDesired()
-        numToday = self.getNumToolsDesired()
-        payment_due = 0
-        tools = []
-        if len(inventory) >= numToday:
-            for index in range(numToday):
-                rentedTool = np.random.choice(inventory)
-                tools.append(rentedTool)
-                rentedTool.day = day
-                rentedTool.due = day + self.getNumNightsDesired()
-                self.toolbox.append(np.random.choice(inventory))
-                payment_due += self.payStore(rentedTool, nights)
-        return payment_due, tools, nights + day
-
     # -------------------- New UML Methods -------------------
     # Constructor for Customer
     def __init__(self, name):
@@ -61,8 +27,47 @@ class Customer:
 	    return self.currentNumTools
 
     # Return the number of rentals the customer wants to make and what date they want to return the tools
-    def requestRental(self):
-        return -1
+    def requestRental(self, inventory, day):
+        # a customer will only rent a tool if enough tools are available
+        # and customers can only have 3 at a time
+        if (self.willRentTools()):
+            numToolsDesired = self.getNumToolsDesired()
+            numNights = self.getNumNightsDesired()
+        else:
+            numToolsDesired = 0
+            numNights = 0
+            
+        """payment_due = 0
+        tools = []
+        if len(inventory) >= numToday:
+            for index in range(numToday):
+                rentedTool = np.random.choice(inventory)
+                tools.append(rentedTool)
+                rentedTool.day = day
+                rentedTool.due = day + self.getNumNightsDesired()
+                self.toolbox.append(np.random.choice(inventory))
+                payment_due += self.payStore(rentedTool, nights)
+        return payment_due, tools, nights + day"""
+
+        return (numToolsDesired, numNights)
+
+    def willRentTools(self):
+        # probability to shop based on # of tools in toolbox
+        if self.currentNumTools == 3:
+            return 0
+        else:
+            factor = self.currentNumTools + 1
+            shopping = np.random.choice([1, 0], 1, p=[.5 / factor, 1 - (.5 / factor)])
+            return shopping
+
+    def getNumNightsDesired(self):
+        numNightsDesired = np.random.choice(list(range(self.minNights, self.maxNights + 1)))
+        return numNightsDesired
+
+    def getNumToolsDesired(self):
+        numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools - self.currentNumTools))
+        return numToolsDesired
+
 
     # return tools a customer has due on the specified day
     def returnTools(self, day):

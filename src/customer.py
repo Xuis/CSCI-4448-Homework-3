@@ -11,8 +11,6 @@
 import numpy as np
 
 class Customer:
-    # -------------------- New UML Methods -------------------
-    # Constructor for Customer
     def __init__(self, name):
         self.name = name
         self.toolbox = []
@@ -109,3 +107,14 @@ class RegularCustomer(Customer):
         self.minNights = 3
         self.maxNumTools = 3
         self.minNumTools = 1
+
+
+class CustomerFactory:
+    def create_customer(name):
+        if 'business' in name:
+            return BusinessCustomer(name)
+        if 'regular' in name:
+            return RegularCustomer(name)
+        if 'casual' in name:
+            return CasualCustomer(name)
+

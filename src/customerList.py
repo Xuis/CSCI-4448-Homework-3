@@ -1,25 +1,29 @@
-#from customer import BusinessCustomer, CasualCustomer, RegularCustomer
+from customer import CustomerFactory
 
 class CustomerList:
 
-    def getCustomerList(self):
-        return self.list
-
-# -------------------- New UML Methods -------------------
     # Constructor for customer
     def __init__(self):
-        self.list = []
-        for i in range(3):
-            self.list.append(BusinessCustomer("business_{}".format(i)))
-            self.list.append((CasualCustomer("casual_{}".format(i))))
-            self.list.append((RegularCustomer("regular_{}".format(i))))
+        self.list = self.create_list()
 
-        self.list.append(RegularCustomer("regular_4"))
+    def create_list(self):
+        temp = []
+        for i in range(3):
+            temp.append(CustomerFactory.create_customer("business_{}".format(i)))
+            temp.append(CustomerFactory.create_customer("casual_{}".format(i)))
+            temp.append(CustomerFactory.create_customer("regular_{}".format(i)))
+
+        temp.append(CustomerFactory.create_customer("regular_3"))
+        return temp
 
     # go through all customers and create a queue for rentals and a queue for returns
     # This method determines how the rental and return queues are organized (which customers will get to go first)
     def wakeAllCustomers(self):
         return -1
+    
+    def getCustomerList(self):
+        return self.list
+
 
     # All queued customers return tools
     def performReturns(self, today, hardwareStore):

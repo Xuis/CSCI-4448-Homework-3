@@ -6,11 +6,12 @@
 from simulator import Simulator
 from store import Store
 from catalog import Catalog
-from customer import Customer
+from customerList import CustomerList
 
+customerList = CustomerList()
 
 def main():
-    #customerList = CustomerFactory()
+    customerList = CustomerFactory()
     #catalog = ToolFactory()
     store = Store(catalog, customerList)
     simulation = Simulator()

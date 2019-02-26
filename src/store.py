@@ -15,7 +15,7 @@ class Store:
                 self.createRental(day, customer.name, tools, payment, dayDue)
 
 # -------------------- New UML Methods -------------------
-    def __init__(self, catalog, client):
+    def __init__(self, catalog, customerList):
         self.customerList = client.getCustomerList()
         self.inventory = catalog
         self.month = [i for i in range(35)]

@@ -1,25 +1,17 @@
-from store import Store
-from catalog import Catalog
-from customerList import CustomerList
-from storeDate import StoreDate
 
 class Simulator:
+    def __init__(self, store):
+        self.store = store
+        self.days = []
+        
+    def setNumDaysToRun(self, numDaysToRun):
+        self.days = [i for i in range(numDaysToRun)]
 # -------------------- New UML Methods -------------------
-    def startSimulation(self):
-        self.NUM_SIMULATION_DAYS = 35
-
+    def startSimulation(self, store):
         print ("The program runs!")
+        for day in self.days:
+            store.open(day)
 
-        catalog = Catalog()
-        customerList = CustomerList()
-        hardwareStore = Store(catalog, customerList)
-
-        # Each day:
-        currSim = StoreDate()
-        today = StoreDate.simulateDay(currSim)
-        while (today != -1):
-            print(today)
-            customerList.performReturns(today, hardwareStore)
-            customerList.performRentals(today, hardwareStore)
-            today = currSim.simulateDay()
-        print(hardwareStore.getRentals())
+        
+        
+        print(store.getRentals())

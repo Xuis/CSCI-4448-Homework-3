@@ -4,6 +4,14 @@
 # =============================================================================
 
 from simulator import Simulator
+from store import Store
+from catalog import Catalog
+from customer import Customer
 
-simulation = Simulator()
-simulation.startSimulation()
+
+def main():
+    #customerList = CustomerFactory()
+    #catalog = ToolFactory()
+    store = Store(catalog, customerList)
+    simulation = Simulator()
+    simulation.startSimulation()

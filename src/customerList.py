@@ -1,4 +1,4 @@
-from customer import BusinessCustomer, CasualCustomer, RegularCustomer
+#from customer import BusinessCustomer, CasualCustomer, RegularCustomer
 
 class CustomerList:
 

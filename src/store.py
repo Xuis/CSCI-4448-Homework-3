@@ -6,20 +6,12 @@
 
 from rental import Rental
 class Store:
-    def open(self, day):
-        for customer in self.customerList:
-            customer.returnTool(day)
-            shopping = customer.shop_today()
-            if shopping:
-                payment, tools, dayDue = customer.requestRental(self.inventory, day)
-                self.createRental(day, customer.name, tools, payment, dayDue)
-
-# -------------------- New UML Methods -------------------
     def __init__(self, catalog, customerList):
-        self.customerList = client.getCustomerList()
+        self.customerList = customerList.getCustomerList()
         self.inventory = catalog
         self.month = [i for i in range(35)]
         self.rentalList = []
+        self.income = 0
 	
     def createRental(self, day, customerName, toolsRented, rentalTotal, dayDue): 
         rental = Rental(day, customerName, toolsRented, rentalTotal, dayDue)

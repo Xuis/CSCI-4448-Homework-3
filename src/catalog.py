@@ -1,6 +1,6 @@
-"""
-Catalog to contain the 20 tool offerings that the store will rent
-"""
+# =============================================================================
+# Catalog to contain the 20 tool offerings that the store will offer
+# =============================================================================
 
 from tool import ToolFactory
 

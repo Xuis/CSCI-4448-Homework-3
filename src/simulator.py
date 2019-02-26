@@ -1,4 +1,13 @@
-
+# =============================================================================
+# Simmulates the activity of the Rental Store for 35 days. 
+# Each Day:
+#    Random number customers "come in"
+#    Only customers who CAN rent, will come in
+#    Every customer that comes in WILL rent
+#    Every customer will rent tools according to their type
+#    Every customer will create a Rental
+#    When the Store has 0 tools, there will be zero customers
+# =============================================================================
 class Simulator:
     def __init__(self, store):
         self.store = store

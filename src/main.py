@@ -14,4 +14,5 @@ def main():
     #catalog = ToolFactory()
     store = Store(catalog, customerList)
     simulation = Simulator()
+    simulation.setNumDaysToRun(35)
     simulation.startSimulation()

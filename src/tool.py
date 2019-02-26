@@ -7,21 +7,17 @@
 
 
 class Tool:
-    CPD_PAINT = 2
-    CPD_CONCRETE = 10
-    CPD_PLUMBING = 5
-    CPD_WOODWORK = 3
-    CPD_YARDWORK = 4
 
-# -------------------- New UML Methods -------------------
     def __init__(self, name):
+        self.CPD_PAINT = 2
+        self.CPD_CONCRETE = 10
+        self.CPD_PLUMBING = 5
+        self.CPD_WOODWORK = 3
+        self.CPD_YARDWORK = 4
         self.name = name
         self.rented = False
         self.costPerDay = 0
         self.dayRented = 0
-
-    def getCurrentRenter(self):
-        return -1
 
     def getDayRented(self):
         return self.dayRented
@@ -47,44 +43,47 @@ class Tool:
 
 
 class PaintingTool(Tool):
-    def __init__(self, name):
-        self.name = name
-        self.rented = False
+    def __init__(self,name):
+        super().__init__(name)
         self.costPerDay = self.CPD_PAINT
-        self.dayRented = 0
-        self.dayDue = 0
-        
+
+
 class ConcreteTool(Tool):
     def __init__(self, name):
-        self.name = name
-        self.rented = False
+        super().__init__(name)
         self.costPerDay = self.CPD_CONCRETE
-        self.dayRented = 0
-        self.dayDue = 0
 
 
 class PlumbingTool(Tool):
     def __init__(self, name):
-        self.name = name
-        self.rented = False
+        super().__init__(name)
         self.costPerDay = self.CPD_PLUMBING
-        self.dayRented = 0
-        self.dayDue = 0
 
 
 class WoodWorkTool(Tool):
     def __init__(self, name):
-        self.name = name
-        self.rented = False
+        super().__init__(name)
         self.costPerDay = self.CPD_WOODWORK
-        self.dayRented = 0
-        self.dayDue = 0
 
 
 class YardWorkTool(Tool):
     def __init__(self, name):
-        self.name = name
-        self.rented = False
+        super().__init__(name)
         self.costPerDay = self.CPD_YARDWORK
-        self.dayRented = 0
-        self.dayDue = 0
+
+class ToolFactory:
+    def create_tool(name):
+        if 'paint' in name:
+            return PaintingTool(name)
+        elif 'concrete' in name:
+            return ConcreteTool(name)
+        elif 'plumbing' in name:
+            return PlumbingTool(name)
+        elif 'wood' in name:
+            return WoodWorkTool(name)
+        else:
+            return YardWorkTool(name)
+
+
+
+

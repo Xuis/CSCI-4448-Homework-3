@@ -19,7 +19,7 @@ class Rental:
 # -------------------- New UML Methods -------------------
     def __init__(self, day, customerName, toolsRented, rentalTotal, dayDue):
         self.customer = customerName
-        self.day = day 
+        self.day = day
         self.tools = toolsRented
         self.rentalLength = dayDue - day
 

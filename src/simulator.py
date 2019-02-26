@@ -6,7 +6,7 @@ from storeDate import StoreDate
 class Simulator:
 # -------------------- New UML Methods -------------------
     def startSimulation(self):
-        NUM_SIMULATION_DAYS = 35
+        self.NUM_SIMULATION_DAYS = 35
 
         print ("The program runs!")
 

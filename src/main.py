@@ -9,11 +9,8 @@ from catalog import Catalog
 from customerList import CustomerList
 
 customerList = CustomerList()
-
-def main():
-    customerList = CustomerFactory()
-    #catalog = ToolFactory()
-    store = Store(catalog, customerList)
-    simulation = Simulator()
-    simulation.setNumDaysToRun(35)
-    simulation.startSimulation()
+catalog = Catalog()
+store = Store(catalog, customerList)
+simulation = Simulator(store)
+simulation.setNumDaysToRun(35)
+simulation.startSimulation()

@@ -18,6 +18,7 @@ class Tool:
         self.rented = False
         self.costPerDay = 0
         self.dayRented = 0
+        self.dayDue = 0
 
     def getDayRented(self):
         return self.dayRented

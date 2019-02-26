@@ -30,18 +30,11 @@ class Catalog:
     def rentTool(self, tools):
         # move tool from on hand to rented
         for tool in tools:
-            for i in range(len(self.onhand)-1):
-                if tool.name == self.onhand[i].name:
-                    self.onhand.pop(i)
-                    break
+            self.onhand.remove(tool)
             self.onloan.append(tool)
-
     def returnTool(self, tools):
         for tool in tools:
-            for i in range(len(self.onloan)-1):
-                if tool.name == self.onloan[i].name:
-                    self.onloan.pop(i)
-                    break
+            self.onloan.remove(tool)
             self.onhand.append(tool)
 
 

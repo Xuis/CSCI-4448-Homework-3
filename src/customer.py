@@ -34,27 +34,32 @@ class Customer:
         else:
             numToolsDesired = 0
             numNights = 0
-            
-        payment_due = 0
         tools = []
+        payment_due = 0
         if len(inventory) >= numToolsDesired:
-            for index in range(numToolsDesired):
-                rentedTool = np.random.choice(inventory)
-                tools.append(rentedTool)
-                rentedTool.day = day
-                rentedTool.due = day + self.getNumNightsDesired()
-                self.toolbox.append(np.random.choice(inventory))
-                payment_due += self.payStore(rentedTool, numNights)
+            tools = self.pickTools(inventory, day, numToolsDesired, numNights)
+            payment_due = self.payStore(tools, numNights)
         
 
-        return (payment_due, tools, rentedTool.due)
+        return (payment_due, tools)
+
+    def pickTools(self, inventory, day, numToolsDesired, numNights):
+        renting = []
+        while len(renting) < numToolsDesired:
+            rentedTool = np.random.choice(inventory)
+            if rentedTool not in renting:
+                renting.append(rentedTool)
+                rentedTool.dayRented = day
+                rentedTool.dayDue = day + numNights
+                self.toolbox.append(rentedTool)
+        return renting
 
     def willRentTools(self):
         # probability to shop based on # of tools in toolbox
         if self.currentNumTools == 3:
             return 0
         else:
-            factor = self.currentNumTools + 1
+            factor = 3*(self.currentNumTools + 1)
             shopping = np.random.choice([1, 0], 1, p=[.5 / factor, 1 - (.5 / factor)])
             return shopping
 
@@ -73,12 +78,14 @@ class Customer:
         for tool in self.toolbox:
             if tool.dayDue == day:
                 tools.append(tool)
-                del self.toolbox[tool]
+                self.toolbox.remove(tool)
         return tools
 
 	# decrement customers balance and incremnt store profits?
-    def payStore(self, tool, nights):
-        paymentOwed = tool.costPerDay * nights
+    def payStore(self, tools, nights):
+        paymentOwed = 0
+        for tool in tools:
+            paymentOwed += tool.costPerDay * nights
         return paymentOwed
 
 

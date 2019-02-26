@@ -11,8 +11,8 @@ class Store:
 			customer.returnTool(day)
 			shopping = customer.shop_today()
 			if shopping:
-				payment, tools, due = customer.rentTool(self.inventory, day)
-				self.createRental(day, customer.name, tools, payment, day, due)
+				payment, tools, dayDue = customer.requestRental(self.inventory, day)
+				self.createRental(day, customer.name, tools, rentalTotal, dayDue)
 
 # -------------------- New UML Methods -------------------
 	def __init__(self, catalog, client):
@@ -21,7 +21,8 @@ class Store:
 		self.month = [i for i in range(35)]
 		self.rentals = {}
 	
-	def createRental(self, day, customerName, toolsRented, rentalTotal, dayRented, dayDue):
+	def createRental(self, day, customerName, toolsRented, rentalTotal, dayDue):#TODO this needs to create a RentalRecord object instead of put it into a dictionary
+        #I like the dictionary method but since we have a class RentalRecord, it should be instantiated here 
 		self.rentals[day] = {"Customer Name": customerName, "Tools": toolsRented, "Payment": rentalTotal, "Day Rented": dayRented, "Due Date": dayDue}
 		
 	def requestPayment(self):

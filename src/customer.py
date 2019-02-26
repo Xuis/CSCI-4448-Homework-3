@@ -37,19 +37,19 @@ class Customer:
             numToolsDesired = 0
             numNights = 0
             
-        """payment_due = 0
+        payment_due = 0
         tools = []
-        if len(inventory) >= numToday:
-            for index in range(numToday):
+        if len(inventory) >= numToolsDesired:
+            for index in range(numToolsDesired):
                 rentedTool = np.random.choice(inventory)
                 tools.append(rentedTool)
                 rentedTool.day = day
                 rentedTool.due = day + self.getNumNightsDesired()
                 self.toolbox.append(np.random.choice(inventory))
-                payment_due += self.payStore(rentedTool, nights)
-        return payment_due, tools, nights + day"""
+                payment_due += self.payStore(rentedTool, numNights)
+        
 
-        return (numToolsDesired, numNights)
+        return (payment_due, tools, rentedTool.due)
 
     def willRentTools(self):
         # probability to shop based on # of tools in toolbox

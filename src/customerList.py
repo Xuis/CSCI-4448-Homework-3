@@ -28,8 +28,8 @@ class CustomerList:
                 hardwareStore.getInventory().returnTool(tools)
 
     # All queued customers perform rentals
-    def performRentals(self, today, hardwareStore):
-        for customer in self.list:
-            (numTools, numNights) = customer.requestRental(hardwareStore.getInventory().getOnhand(), today)
+    #def performRentals(self, today, hardwareStore):
+        #for customer in self.list:
+            #(numTools, numNights) = customer.requestRental(hardwareStore.getInventory().getOnhand(), today)
             # hardwareStore.inventory.rentTool(tools)
             # hardwareStore.createRental(today, customer.name, tools, payment, today, due)

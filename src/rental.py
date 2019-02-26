@@ -17,19 +17,19 @@ Take in list of tools and record rental date and must return date
 
 class Rental:
 # -------------------- New UML Methods -------------------
-    def __init__(self, customer, date, tools, daysRented):
-        self.customer = customer
-        self.date = date #TODO Get the current Date automatically
-        self.tools = tools
-        self.days = daysRented
+    def __init__(self, day, customerName, toolsRented, rentalTotal, dayDue):
+        self.customer = customerName
+        self.day = day 
+        self.tools = toolsRented
+        self.rentalLength = dayDue - day
 
         # Calculate the cost of the rental:
         self.cost = 0
-        for tool in tools:
+        for tool in self.tools:
             self.cost += tool.getCostPerDay() * self.days
 
     def getDueDate(self):
-        return self.date + self.days
+        return self.day + self.days
 
     def reportString(self):
         # Retuns a "report" of the rental in a string formself.

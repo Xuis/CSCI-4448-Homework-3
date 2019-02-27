@@ -22,14 +22,17 @@ class Rental:
         self.day = day
         self.tools = toolsRented
         self.rentalLength = dayDue - day
-
+        self.dayDue = dayDue
+        
         # Calculate the cost of the rental:
         self.cost = 0
         for tool in self.tools:
-            self.cost += tool.getCostPerDay() * self.days
+            self.cost += tool.getCostPerDay() * self.rentalLength
 
+    
+    
     def getDueDate(self):
-        return self.day + self.days
+        return self.day + self.rentalLength
 
     def reportString(self):
         # Retuns a "report" of the rental in a string formself.
@@ -38,5 +41,5 @@ class Rental:
         for tool in self.tools:  # formats all the tool names into a string.
             toolsString += (tool.getName()  + " ")
             toolsString = toolsString.rstrip()
-        string = self.customer.name + " rented [" + toolsString + "] for " + self.days + " days which totaled to $" +  self.cost
+        string = self.customer.name + " rented [" + toolsString + "] for " + self.rentalLength + " days which totaled to $" +  self.cost
         return string

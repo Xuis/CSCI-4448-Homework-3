@@ -41,7 +41,7 @@ class Customer:
             payment_due = self.payStore(tools, numNights)
         
 
-        return (payment_due, tools)
+        return (payment_due, tools, numNights)
 
     def pickTools(self, inventory, day, numToolsDesired, numNights):
         renting = []

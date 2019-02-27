@@ -24,23 +24,23 @@ class Customer:
     def getNumToolsRented(self):
 	    return self.currentNumTools
 
-    # Return the number of rentals the customer wants to make and what date they want to return the tools
     def requestRental(self, inventory, day):
         # a customer will only rent a tool if enough tools are available
         # and customers can only have 3 at a time
+        # returns the total payment for rental order, the tools to be rented and for how long
         numToolsDesired = self.getNumToolsDesired()
         numNights = self.getNumNightsDesired()
-       
         tools = []
         payment_due = 0
         if len(inventory) >= numToolsDesired:
             tools = self.pickTools(inventory, day, numToolsDesired, numNights)
             payment_due = self.payStore(tools, numNights)
-        
-
         return (payment_due, tools, numNights)
 
     def pickTools(self, inventory, day, numToolsDesired, numNights):
+        # allows the customer to put together an order. Checks to make sure the
+        # customer has not randomly selected the same tool twice as it cannot be
+        # rented twice!
         renting = []
         while len(renting) < numToolsDesired:
             rentedTool = np.random.choice(inventory)
@@ -53,7 +53,7 @@ class Customer:
 
     def willRentTools(self):
         # probability to shop based on # of tools in toolbox
-        if self.currentNumTools == 3:
+        if self.currentNumTools == self.maxNumTools:
             return 0
         else:
             factor = 3*(self.currentNumTools + 1)
@@ -61,10 +61,12 @@ class Customer:
             return shopping
 
     def getNumNightsDesired(self):
+        # how long to rent the tools for!
         numNightsDesired = np.random.choice(list(range(self.minNights, self.maxNights + 1)))
         return numNightsDesired
 
     def getNumToolsDesired(self):
+        # how many tools to rent
         numToolsDesired = np.random.choice(range(self.minNumTools, self.maxNumTools - self.currentNumTools))
         return numToolsDesired
 
@@ -78,14 +80,16 @@ class Customer:
                 self.toolbox.remove(tool)
         return tools
 
-	# decrement customers balance and incremnt store profits?
+
     def payStore(self, tools, nights):
+        # calculates the total amount owed for tools the customer would like to rent
         paymentOwed = 0
         for tool in tools:
             paymentOwed += tool.costPerDay * nights
         return paymentOwed
 
-
+# Subclasses for the Superclass customer
+# these classes init with the Superclass values, but use their own max/min values
 class CasualCustomer(Customer):
     def __init__(self, name):
         Customer.__init__(self, name)
@@ -113,6 +117,7 @@ class RegularCustomer(Customer):
         self.minNumTools = 1
 
 
+# the customer factory returns a newly instantiated customer based on their name
 class CustomerFactory:
     def create_customer(name):
         if 'business' in name:
@@ -121,4 +126,3 @@ class CustomerFactory:
             return RegularCustomer(name)
         if 'casual' in name:
             return CasualCustomer(name)
-

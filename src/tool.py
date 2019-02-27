@@ -4,73 +4,50 @@
 # Tools are in Store.Catalog
 # Tools are rented by Customers
 # =============================================================================
-
+from enum import Enum
 
 class Tool:
-
+    # Tool is the super class for all tools, it holds all base attributes and methods 
     def __init__(self, name):
-        self.CPD_PAINT = 2
-        self.CPD_CONCRETE = 10
-        self.CPD_PLUMBING = 5
-        self.CPD_WOODWORK = 3
-        self.CPD_YARDWORK = 4
         self.name = name
         self.rented = False
         self.costPerDay = 0
         self.dayRented = 0
         self.dayDue = 0
 
-    def getDayRented(self):
-        return self.dayRented
-
-    def getcostPerDay(self):
-        return self.costPerDay
-
-    def rentTool(self):
-        self.rented = True
-
-    def setRented(self, isRented):
-        self.rented = isRented
-        
-    def getName(self):
-        return self.name
         
     def getCostPerDay(self):
         return self.costPerDay
-
-    def isRented(self):
-        return self.rented
-
 
 
 class PaintingTool(Tool):
     def __init__(self,name):
         super().__init__(name)
-        self.costPerDay = self.CPD_PAINT
+        self.costPerDay = ToolCost.PAINT.value
 
 
 class ConcreteTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = self.CPD_CONCRETE
+        self.costPerDay = ToolCost.CONCRETE.value
 
 
 class PlumbingTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = self.CPD_PLUMBING
+        self.costPerDay = ToolCost.PLUMBING.value
 
 
 class WoodWorkTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = self.CPD_WOODWORK
+        self.costPerDay = ToolCost.WOODWORK.value
 
 
 class YardWorkTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = self.CPD_YARDWORK
+        self.costPerDay = ToolCost.YARDWORK.value
 
 class ToolFactory:
     def create_tool(name):
@@ -85,6 +62,10 @@ class ToolFactory:
         else:
             return YardWorkTool(name)
 
-
-
+class ToolCost(Enum):
+    PAINT = 2
+    CONCRETE = 10
+    PLUMBING = 5
+    WOODWORK = 3
+    YARDWORK = 4
 

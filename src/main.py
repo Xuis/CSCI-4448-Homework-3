@@ -40,5 +40,4 @@ df.columns = labels
 Reporting.print_final_inventory(store.inventory)
 Reporting.print_total_income(store.income)
 Reporting.print_rentals(df)
-
-#print(df.head(15))    
+ 

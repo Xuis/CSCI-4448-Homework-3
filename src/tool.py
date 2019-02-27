@@ -20,6 +20,8 @@ class Tool:
         return self.costPerDay
 
 
+# below are all the tool subclasses. 
+# They initialize with Tool __init__ then get their cost per day values from the ToolCost class
 class PaintingTool(Tool):
     def __init__(self,name):
         super().__init__(name)
@@ -50,6 +52,9 @@ class YardWorkTool(Tool):
         self.costPerDay = ToolCost.YARDWORK.value
 
 class ToolFactory:
+    # Tool factory is called by the catalog to instantiate tools of varying types 
+    # by passing in their names. The factory uses the names to determine which type
+    # of tool needs to be created.
     def create_tool(name):
         if 'paint' in name:
             return PaintingTool(name)
@@ -63,6 +68,8 @@ class ToolFactory:
             return YardWorkTool(name)
 
 class ToolCost(Enum):
+    # ToolCost encapsulates the varying costs of tools. 
+    # The individual tools __init__ with a call to retieve their cost.
     PAINT = 2
     CONCRETE = 10
     PLUMBING = 5

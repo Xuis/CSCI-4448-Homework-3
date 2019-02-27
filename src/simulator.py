@@ -17,17 +17,12 @@ class Simulator:
     def setNumDaysToRun(self, numDaysToRun):
         self.days = [i for i in range(numDaysToRun)]
 
-    def startSimulation(self):
-        
+    def startSimulation(self):        
         for day in self.days:
-            self.customerFunctions(day)
-            
-            
-            
-    def customerFunctions(self, day):
-        self.simulate_customerReturns(day)
-        self.simulate_customerRentals(day)
-
+            self.simulate_customerReturns(day)
+            self.simulate_customerRentals(day)
+                       
+  
     def simulate_customerReturns(self, day):
         returned_tools=[]
         for customer in self.customerList:
@@ -42,12 +37,13 @@ class Simulator:
                 payment, tools, numNights = customer.requestRental(self.store.inventory.onhand, day)
                 self.store.income += payment
                 self.store.inventory.rentTool(tools)
-                self.store.createRental(day, customer.name, tools, payment, numNights + day)
+                if payment:
+                    self.store.createRental(day, customer.name, tools, payment, numNights + day)
 
-    def print_daily(self, day):
-        print("DAY:", day)    
-        #print("ON HAND:")    
-        #print(self.store.inventory.onhand)
-        #print("ON LOAN:")
-        #print(self.store.inventory.onloan)
-        print(self.store.income)
+#    def print_daily(self, day):
+#        print("DAY:", day)    
+#        #print("ON HAND:")    
+#        #print(self.store.inventory.onhand)
+#        #print("ON LOAN:")
+#        #print(self.store.inventory.onloan)
+#        print(self.store.income)

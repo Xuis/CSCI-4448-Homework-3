@@ -25,10 +25,10 @@ class Simulator:
             
             
     def customerFunctions(self, day):
-        self.customerReturns(day)
-        self.customerRentals(day)
+        self.simulate_customerReturns(day)
+        self.simulate_customerRentals(day)
 
-    def customerReturns(self, day):
+    def simulate_customerReturns(self, day):
         returned_tools=[]
         for customer in self.customerList:
             tools = customer.returnTools(day)
@@ -36,7 +36,7 @@ class Simulator:
                 returned_tools.append(tool)
         self.store.inventory.returnTool(returned_tools)
 
-    def customerRentals(self, day):
+    def simulate_customerRentals(self, day):
         for customer in self.customerList:
             if customer.willRentTools():
                 payment, tools, numNights = customer.requestRental(self.store.inventory.onhand, day)

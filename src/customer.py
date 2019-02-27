@@ -28,12 +28,9 @@ class Customer:
     def requestRental(self, inventory, day):
         # a customer will only rent a tool if enough tools are available
         # and customers can only have 3 at a time
-        if (self.willRentTools()):
-            numToolsDesired = self.getNumToolsDesired()
-            numNights = self.getNumNightsDesired()
-        else:
-            numToolsDesired = 0
-            numNights = 0
+        numToolsDesired = self.getNumToolsDesired()
+        numNights = self.getNumNightsDesired()
+       
         tools = []
         payment_due = 0
         if len(inventory) >= numToolsDesired:

@@ -25,11 +25,15 @@ simulation.startSimulation()
 
  
     
-labels = ['Customer Name', 'Tools Rented', 'Length of Rental', 'Total Cost']
+labels = ['Customer Name', 'Tool 1', 'Tool 2', 'Tool 3', 'Days', 'Total Cost']
 superRentalList = []
 for rental in store.rentalList:
-    superRentalList.append([rental.customer, rental.tools, rental.rentalLength, rental.cost])
+    toolNames = [None, None, None]
+    for index in range(len(rental.tools)):
+        for tool in rental.tools:        
+            toolNames[index] = tool.name 
+    superRentalList.append([rental.customer, toolNames[0], toolNames[1], toolNames[2], rental.rentalLength, rental.cost])
 
 df = pd.DataFrame(superRentalList)
 df.columns = labels
-print(df.head(15))    
+print(df.head())    

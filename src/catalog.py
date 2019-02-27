@@ -19,14 +19,6 @@ class Catalog:
             self.onhand.append(ToolFactory.create_tool("yardwork_{}".format(i)))
         return self.onhand
 
-    def getToolCost(self, tool):
-        return tool.getCostPerDay()
-
-    def getToolAvail(self, tool):
-        return tool.isRented()
-
-    def getOnhand(self):
-        return self.onhand
     def rentTool(self, tools):
         # move tool from on hand to rented
         for tool in tools:

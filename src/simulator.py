@@ -18,12 +18,10 @@ class Simulator:
         self.days = [i for i in range(numDaysToRun)]
 
     def startSimulation(self):
-        print ("The program runs!")
+        
         for day in self.days:
-            for tool in self.store.inventory.onhand:
-                print(tool)
             self.customerFunctions(day)
-            self.print_daily(day)
+            
             
             
     def customerFunctions(self, day):

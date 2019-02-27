@@ -16,7 +16,6 @@ Take in list of tools and record rental date and must return date
 """
 
 class Rental:
-# -------------------- New UML Methods -------------------
     def __init__(self, day, customerName, toolsRented, rentalTotal, dayDue):
         self.customer = customerName
         self.day = day

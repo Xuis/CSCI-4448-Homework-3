@@ -37,7 +37,7 @@ for rental in store.rentalList:
 
 df = pd.DataFrame(superRentalList)
 df.columns = labels
+
 Reporting.print_final_inventory(store.inventory)
 Reporting.print_total_income(store.income)
 Reporting.print_rentals(df)
- 

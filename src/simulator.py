@@ -37,7 +37,8 @@ class Simulator:
                 payment, tools, numNights = customer.requestRental(self.store.inventory.onhand, day)
                 self.store.income += payment
                 self.store.inventory.rentTool(tools)
-                self.store.createRental(day, customer.name, tools, payment, numNights + day)
+                if payment:
+                    self.store.createRental(day, customer.name, tools, payment, numNights + day)
 
 #    def print_daily(self, day):
 #        print("DAY:", day)    

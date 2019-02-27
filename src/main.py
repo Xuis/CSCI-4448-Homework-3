@@ -36,4 +36,4 @@ for rental in store.rentalList:
 
 df = pd.DataFrame(superRentalList)
 df.columns = labels
-print(df.head(15))    
+print(df)    

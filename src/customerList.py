@@ -2,7 +2,9 @@ from customer import CustomerFactory
 
 class CustomerList:
 
-    # Constructor for customer
+    #Customer list holds a list of customers. Clever eh?
+    # at instantiation the class calls CustomerFactory to fill a list of customers 
+    # all customers have unique names, and are of 1 of 3 types.
     def __init__(self):
         self.list = self.create_list()
 

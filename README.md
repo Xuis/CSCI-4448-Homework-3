@@ -1,5 +1,14 @@
 # CSCI-4441-Homework-3
 
+<h1> To Run: </h1>
+<p>
+  1. git pull or clone
+  
+  2. navigate to src directory
+  
+  3. Run with python main.py
+  </p>
+
 <h1>Common code conventions for our assignment</h1>
 <p>
 * Classes always capitalized . 

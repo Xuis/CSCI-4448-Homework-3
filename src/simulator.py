@@ -33,7 +33,7 @@ class Simulator:
     def simulate_customerRentals(self, day):
         for customer in self.__customerList:
             if customer.willRentItems():
-                payment, Items, numNights = customer.requestRental(self.__store.getInventory().onhand, day)
+                payment, Items, numNights = customer.requestRental(self.__store.getInventory().getOnhand(), day)
                 self.__store.setIncome(self.__store.getIncome() + payment)
                 self.__store.getInventory().rentItem(Items)
                 if payment:

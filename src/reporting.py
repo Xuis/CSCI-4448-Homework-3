@@ -6,8 +6,8 @@ class Reporting:
     def print_final_inventory(inventory):
         # prints the ending inventory of store
         print("Inventory on hand after day 35:")
-        if len(inventory.onhand) > 0:
-            for tool in inventory.onhand:
+        if len(inventory.getOnhand()) > 0:
+            for tool in inventory.getOnhand():
                 print(tool.name," : ", tool.costPerDay)
         else: 
             print("We are currently out of tools!")

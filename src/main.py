@@ -30,10 +30,10 @@ labels = ['Customer Name', 'Item 1', 'Item 2', 'Item 3', 'Days', 'Day Due', 'Tot
 superRentalList = []
 for rental in store.rentalList:
     itemNames = [None, None, None]
-    for index in range(len(rental.items)):
-        for item in rental.items:        
+    for index in range(len(rental.getItems())):
+        for item in rental.getItems():        
             itemNames[index] = item.name 
-    superRentalList.append([rental.customer, itemNames[0], itemNames[1], itemNames[2], rental.rentalLength, rental.dayDue+1, rental.cost])
+    superRentalList.append([rental.getCustomer(), itemNames[0], itemNames[1], itemNames[2], rental.getRentalLength(), rental.getRentalDueDate() + 1, rental.cost])
 
 df = pd.DataFrame(superRentalList)
 df.columns = labels

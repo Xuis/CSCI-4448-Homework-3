@@ -1,4 +1,4 @@
-from customer import CustomerFactory
+from Customer import CustomerFactory
 
 class CustomerList:
 

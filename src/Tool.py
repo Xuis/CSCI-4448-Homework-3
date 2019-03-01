@@ -10,9 +10,7 @@ class Tool:
     # Tool is the super class for all tools, it holds all base attributes and methods 
     def __init__(self, name):
         self.name = name
-        self.rented = False
         self.costPerDay = 0
-        self.dayRented = 0
         self.dayDue = 0
 
         
@@ -51,11 +49,11 @@ class YardWorkTool(Tool):
         super().__init__(name)
         self.costPerDay = ToolCost.YARDWORK.value
 
-class ToolFactory:
+class ItemFactory:
     # Tool factory is called by the catalog to instantiate tools of varying types 
     # by passing in their names. The factory uses the names to determine which type
     # of tool needs to be created.
-    def create_tool(name):
+    def create_item(name):
         if 'paint' in name:
             return PaintingTool(name)
         elif 'concrete' in name:

@@ -3,7 +3,7 @@
 # at instantiation the class calls CustomerFactory to fill a list of customers 
 # all customers have unique names, and are of 1 of 3 types.
 # =============================================================================
-from customer import CustomerFactory
+from Customer import CustomerFactory
 
 class CustomerList:
 

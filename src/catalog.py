@@ -2,7 +2,7 @@
 # Catalog to contain the 20 tool offerings that the store will offer
 # =============================================================================
 
-from tool import ItemFactory
+from Tool import ItemFactory
 
 class Catalog:
     # Catalog is the effective inventory for the store. I keeps track of all tools

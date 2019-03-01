@@ -8,7 +8,7 @@ class Reporting:
         print("Inventory on hand after day 35:")
         if len(inventory.getOnhand()) > 0:
             for tool in inventory.getOnhand():
-                print(tool.name," : ", tool.costPerDay)
+                print(tool.getName()," : ", tool.getCostPerDay())
         else: 
             print("We are currently out of tools!")
 

@@ -10,11 +10,11 @@
 # * A list of all outstanding rentals with the same information
 # =============================================================================
 
-from simulator import Simulator
+from Simulator import Simulator
 from Store import Store
-from catalog import Catalog
-from customerList import CustomerList
-from reporting import Reporting
+from Catalog import Catalog
+from CustomerList import CustomerList
+from Reporting import Reporting
 import pandas as pd
 
 customerList = CustomerList()

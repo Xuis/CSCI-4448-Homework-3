@@ -2,7 +2,7 @@
 # prints all elements for final reporting as requested by assignment
 # =============================================================================
 
-from catalog import Catalog
+from Catalog import Catalog
 
 class Reporting:
     def print_final_inventory(inventory):

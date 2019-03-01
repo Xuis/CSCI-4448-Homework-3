@@ -4,7 +4,7 @@
 # Store tracks Rentals (invoices) and Inventory
 # =============================================================================
 
-from rental import Rental
+from Rental import Rental
 class Store:
     def __init__(self, catalog, customerList):
         self.__customerList = customerList.getCustomerList()

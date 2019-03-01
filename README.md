@@ -2,6 +2,7 @@
 
 <h1> Team Members: </h1>
 <p>
+  
   1. Jade Wibbels
   
   2. Joy Mace
@@ -13,6 +14,7 @@
 
 <h1> To Run: </h1>
 <p>
+  
   1. git pull or clone
   
   2. navigate to src directory

@@ -8,7 +8,7 @@ from Customer import CustomerFactory
 class CustomerList:
 
     def __init__(self):
-        self.list = self.create_list()
+        self.__list = self.create_list()
 
     def create_list(self):
         temp = []
@@ -21,5 +21,5 @@ class CustomerList:
         return temp
    
     def getCustomerList(self):
-        return self.list
+        return self.__list
 

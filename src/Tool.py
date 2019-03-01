@@ -9,13 +9,16 @@ from enum import Enum
 class Tool:
     # Tool is the super class for all tools, it holds all base attributes and methods 
     def __init__(self, name):
-        self.name = name
-        self.costPerDay = 0
-        self.dayDue = 0
+        self.__name = name
+        self.__costPerDay = 0
+        self.__dayDue = 0
 
         
     def getCostPerDay(self):
-        return self.costPerDay
+        return self.__costPerDay
+
+    def getName(self):
+        return self.__name
 
 
 # below are all the tool subclasses. 

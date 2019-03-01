@@ -2,7 +2,7 @@
 # Catalog to contain the 20 tool offerings that the store will offer
 # =============================================================================
 
-from tool import ToolFactory
+from Tool import ItemFactory
 
 class Catalog:
     # Catalog is the effective inventory for the store. I keeps track of all tools
@@ -16,21 +16,21 @@ class Catalog:
         # called at instantiation of the catalog to fill inventory with 20 tools 
         # of varying types
         for i in range(4):
-            self.onhand.append(ToolFactory.create_tool("concrete_{}".format(i)))
-            self.onhand.append(ToolFactory.create_tool("painting_{}".format(i)))
-            self.onhand.append(ToolFactory.create_tool("plumbing_{}".format(i)))
-            self.onhand.append(ToolFactory.create_tool("woodwoork_{}".format(i)))
-            self.onhand.append(ToolFactory.create_tool("yardwork_{}".format(i)))
+            self.onhand.append(ItemFactory.create_item("concrete_{}".format(i)))
+            self.onhand.append(ItemFactory.create_item("painting_{}".format(i)))
+            self.onhand.append(ItemFactory.create_item("plumbing_{}".format(i)))
+            self.onhand.append(ItemFactory.create_item("woodwoork_{}".format(i)))
+            self.onhand.append(ItemFactory.create_item("yardwork_{}".format(i)))
 
-    def rentTool(self, tools):
+    def rentItem(self, items):
         # move tool from on hand to on loan
-        for tool in tools:
-            self.onhand.remove(tool)
-            self.onloan.append(tool)
+        for item in items:
+            self.onhand.remove(item)
+            self.onloan.append(item)
 
-    def returnTool(self, tools):
+    def returnItem(self, items):
         # move tool from on loan to on hand
-        for tool in tools:
-            self.onloan.remove(tool)
-            self.onhand.append(tool)
+        for item in items:
+            self.onloan.remove(item)
+            self.onhand.append(item)
 

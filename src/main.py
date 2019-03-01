@@ -11,7 +11,7 @@
 # =============================================================================
 
 from simulator import Simulator
-from store import Store
+from Store import Store
 from catalog import Catalog
 from customerList import CustomerList
 from reporting import Reporting
@@ -26,14 +26,14 @@ simulation.startSimulation()
 
  
     
-labels = ['Customer Name', 'Tool 1', 'Tool 2', 'Tool 3', 'Days', 'Day Due', 'Total Cost']
+labels = ['Customer Name', 'Item 1', 'Item 2', 'Item 3', 'Days', 'Day Due', 'Total Cost']
 superRentalList = []
 for rental in store.rentalList:
-    toolNames = [None, None, None]
-    for index in range(len(rental.tools)):
-        for tool in rental.tools:        
-            toolNames[index] = tool.name 
-    superRentalList.append([rental.customer, toolNames[0], toolNames[1], toolNames[2], rental.rentalLength, rental.dayDue+1, rental.cost])
+    itemNames = [None, None, None]
+    for index in range(len(rental.items)):
+        for item in rental.items:        
+            itemNames[index] = item.name 
+    superRentalList.append([rental.customer, itemNames[0], itemNames[1], itemNames[2], rental.rentalLength, rental.dayDue+1, rental.cost])
 
 df = pd.DataFrame(superRentalList)
 df.columns = labels

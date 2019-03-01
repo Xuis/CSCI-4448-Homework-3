@@ -13,13 +13,6 @@ class Store:
         self.rentalList = []
         self.income = 0
 	
-    def createRental(self, day, customerName, toolsRented, rentalTotal, dayDue): 
-        rental = Rental(day, customerName, toolsRented, rentalTotal, dayDue)
+    def createRental(self, day, customerName, itemsRented, rentalTotal, dayDue): 
+        rental = Rental(day, customerName, itemsRented, rentalTotal, dayDue)
         self.rentalList.append(rental)
-		
-        
-    def getInventory(self):
-        return self.inventory
-
-    def getRentals(self):
-        return self.rentals

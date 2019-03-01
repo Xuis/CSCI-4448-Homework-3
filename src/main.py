@@ -11,7 +11,7 @@
 # =============================================================================
 
 from simulator import Simulator
-from Store import Store
+from store import Store
 from catalog import Catalog
 from customerList import CustomerList
 from reporting import Reporting

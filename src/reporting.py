@@ -1,6 +1,8 @@
-class Reporting:
-    # prints all elements for final reporting as requested by assignment
+# =============================================================================
+# prints all elements for final reporting as requested by assignment
+# =============================================================================
 
+class Reporting:
     def print_final_inventory(inventory):
         # prints the ending inventory of store
         print("Inventory on hand after day 35:")

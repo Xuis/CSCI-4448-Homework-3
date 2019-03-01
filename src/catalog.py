@@ -16,7 +16,7 @@ class Catalog:
         # called at instantiation of the catalog to fill inventory with 20 tools 
         # of varying types
         for i in range(4):
-            self.__onhand.append(ItemFactory.create_item("concrete_{}".format(i)))
+            self.__onhand.append(ItemFactory.create_item(str("concrete_{}".format(i))))
             self.__onhand.append(ItemFactory.create_item("painting_{}".format(i)))
             self.__onhand.append(ItemFactory.create_item("plumbing_{}".format(i)))
             self.__onhand.append(ItemFactory.create_item("woodwoork_{}".format(i)))

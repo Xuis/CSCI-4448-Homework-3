@@ -9,16 +9,16 @@ from enum import Enum
 class Tool:
     # Tool is the super class for all tools, it holds all base attributes and methods 
     def __init__(self, name):
-        self.__name = name
-        self.__costPerDay = 0
-        self.__dayDue = 0
+        self._name = name
+        self._costPerDay = 0
+        self._dayDue = 0
 
         
     def getCostPerDay(self):
-        return self.__costPerDay
+        return self._costPerDay
 
     def getName(self):
-        return self.__name
+        return self._name
 
 
 # below are all the tool subclasses. 
@@ -26,31 +26,31 @@ class Tool:
 class PaintingTool(Tool):
     def __init__(self,name):
         super().__init__(name)
-        self.costPerDay = ToolCost.PAINT.value
+        self._costPerDay = ToolCost.PAINT.value
 
 
 class ConcreteTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = ToolCost.CONCRETE.value
+        self._costPerDay = ToolCost.CONCRETE.value
 
 
 class PlumbingTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = ToolCost.PLUMBING.value
+        self._costPerDay = ToolCost.PLUMBING.value
 
 
 class WoodWorkTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = ToolCost.WOODWORK.value
+        self._costPerDay = ToolCost.WOODWORK.value
 
 
 class YardWorkTool(Tool):
     def __init__(self, name):
         super().__init__(name)
-        self.costPerDay = ToolCost.YARDWORK.value
+        self._costPerDay = ToolCost.YARDWORK.value
 
 class ItemFactory:
     # Tool factory is called by the catalog to instantiate tools of varying types 

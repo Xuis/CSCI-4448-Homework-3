@@ -94,7 +94,7 @@ class Customer:
         # calculates the total amount owed for Items the customer would like to rent
         paymentOwed = 0
         for item in Items:
-            paymentOwed += item.costPerDay * nights
+            paymentOwed += item.getCostPerDay() * nights
         return paymentOwed
 
     def getName(self):

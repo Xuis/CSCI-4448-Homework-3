@@ -10,31 +10,31 @@
 # =============================================================================
 class Simulator:
     def __init__(self, store):
-        self.store = store
-        self.customerList = store.getCustomerList()
-        self.days = []
+        self.__store = store
+        self.__customerList = store.getCustomerList()
+        self.__days = []
         
     def setNumDaysToRun(self, numDaysToRun):
-        self.days = [i for i in range(numDaysToRun)]
+        self.__days = [i for i in range(numDaysToRun)]
 
     def startSimulation(self):        
-        for day in self.days:
+        for day in self.__days:
             self.simulate_customerReturns(day)
             self.simulate_customerRentals(day)
   
     def simulate_customerReturns(self, day):
         returned_Items=[]
-        for customer in self.customerList:
+        for customer in self.__customerList:
             Items = customer.returnItems(day)
             for item in Items:
                 returned_Items.append(item)
-        self.store.getInventory().returnItem(returned_Items)
+        self.__store.getInventory().returnItem(returned_Items)
 
     def simulate_customerRentals(self, day):
-        for customer in self.customerList:
+        for customer in self.__customerList:
             if customer.willRentItems():
-                payment, Items, numNights = customer.requestRental(self.store.getInventory().onhand, day)
-                self.store.setIncome(self.store.getIncome() + payment)
-                self.store.getInventory().rentItem(Items)
+                payment, Items, numNights = customer.requestRental(self.__store.getInventory().onhand, day)
+                self.__store.setIncome(self.__store.getIncome() + payment)
+                self.__store.getInventory().rentItem(Items)
                 if payment:
-                    self.store.createRental(day, customer.name, Items, payment, numNights + day)
+                    self.__store.createRental(day, customer.name, Items, payment, numNights + day)

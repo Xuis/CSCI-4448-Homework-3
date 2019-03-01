@@ -28,7 +28,7 @@ simulation.startSimulation()
     
 labels = ['Customer Name', 'Item 1', 'Item 2', 'Item 3', 'Days', 'Day Due', 'Total Cost']
 superRentalList = []
-for rental in store.rentalList:
+for rental in store.getRentalList():
     itemNames = [None, None, None]
     for index in range(len(rental.getItems())):
         for item in rental.getItems():        
@@ -38,6 +38,6 @@ for rental in store.rentalList:
 df = pd.DataFrame(superRentalList)
 df.columns = labels
 
-Reporting.print_final_inventory(store.inventory)
-Reporting.print_total_income(store.income)
+Reporting.print_final_inventory(store.getInventory())
+Reporting.print_total_income(store.getIncome())
 Reporting.print_rentals(df)

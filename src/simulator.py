@@ -11,7 +11,7 @@
 class Simulator:
     def __init__(self, store):
         self.store = store
-        self.customerList = store.customerList
+        self.customerList = store.getCustomerList()
         self.days = []
         
     def setNumDaysToRun(self, numDaysToRun):
@@ -21,7 +21,6 @@ class Simulator:
         for day in self.days:
             self.simulate_customerReturns(day)
             self.simulate_customerRentals(day)
-                       
   
     def simulate_customerReturns(self, day):
         returned_Items=[]
@@ -29,14 +28,13 @@ class Simulator:
             Items = customer.returnItems(day)
             for item in Items:
                 returned_Items.append(item)
-        self.store.inventory.returnItem(returned_Items)
+        self.store.getInventory().returnItem(returned_Items)
 
     def simulate_customerRentals(self, day):
         for customer in self.customerList:
             if customer.willRentItems():
-                payment, Items, numNights = customer.requestRental(self.store.inventory.onhand, day)
-                self.store.income += payment
-                self.store.inventory.rentItem(Items)
+                payment, Items, numNights = customer.requestRental(self.store.getInventory().onhand, day)
+                self.store.setIncome(self.store.getIncome() + payment)
+                self.store.getInventory().rentItem(Items)
                 if payment:
                     self.store.createRental(day, customer.name, Items, payment, numNights + day)
-

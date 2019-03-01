@@ -46,7 +46,7 @@ class Customer:
                 renteditem.dayDue = day + numNights
                 renting.append(renteditem)
                 self.__shoppingCart.append(renteditem)
-        return renting
+        return renting 
 
     def willRentItems(self):
         # probability to shop based on # of Items in shoppingCart

@@ -10,9 +10,9 @@ class Rental:
         self.__dayDue = dayDue
         
         # Calculate the cost of the rental:
-        self.cost = 0
+        self.__cost = 0
         for item in self.__items:
-            self.cost += item.getCostPerDay() * self.__rentalLength
+            self.__cost += item.getCostPerDay() * self.__rentalLength
 
     def getItems(self):
         return self.__items
@@ -20,8 +20,12 @@ class Rental:
     def getCustomer(self):
         return self.__customer
 
-    def getRentalLength(self):
+    def getLength(self):
         return self.__rentalLength
 
-    def getRentalDueDate(self):
+    def getDueDate(self):
         return self.__dayDue
+
+    def getCost(self):
+        return self.__cost
+

@@ -31,8 +31,7 @@ superRentalList = []
 for rental in store.getRentalList():
     itemNames = [None, None, None]
     for index in range(len(rental.getItems())):
-        for item in rental.getItems():        
-            itemNames[index] = item.getName() 
+        itemNames[index] = rental.getItems()[index].getName() 
     superRentalList.append([rental.getCustomer(), itemNames[0], itemNames[1], itemNames[2], rental.getLength(), rental.getDueDate() + 1, rental.getCost()])
 
 df = pd.DataFrame(superRentalList)

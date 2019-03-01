@@ -37,4 +37,4 @@ class Simulator:
                 self.__store.setIncome(self.__store.getIncome() + payment)
                 self.__store.getInventory().rentItem(Items)
                 if payment:
-                    self.__store.createRental(day, customer.name, Items, payment, numNights + day)
+                    self.__store.createRental(day, customer.getName(), Items, payment, numNights + day)

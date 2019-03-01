@@ -13,14 +13,14 @@ from random import randint
 
 class Customer:
     def __init__(self, name):
-        self.name = name
-        self.shoppingCart = []
-        self.maxNumItems = 3
-        self.currentNumItems = len(self.shoppingCart)
+        self.__name = name
+        self.__shoppingCart = []
+        self.__maxNumItems = 3
+        self.__currentNumItems = len(self.__shoppingCart)
 
     # return number of Items customer has rented
     def getNumItemsRented(self):
-	    return self.currentNumItems
+	    return self.__currentNumItems
 
     def requestRental(self, inventory, day):
         # a customer will only rent a item if enough Items are available
@@ -45,48 +45,48 @@ class Customer:
             if renteditem not in renting:
                 renteditem.dayDue = day + numNights
                 renting.append(renteditem)
-                self.shoppingCart.append(renteditem)
+                self.__shoppingCart.append(renteditem)
         return renting
 
     def willRentItems(self):
         # probability to shop based on # of Items in shoppingCart
-        if self.currentNumItems == self.maxNumItems:
+        if self.__currentNumItems == self.__maxNumItems:
             return 0
         else:
-            factor = 3*(self.currentNumItems + 1)
+            factor = 3*(self.__currentNumItems + 1)
             shopping = np.random.choice([1, 0], 1, p=[.5 / factor, 1 - (.5 / factor)])
             return shopping
 
     def getNumNightsDesired(self):
         # how long to rent the Items for!
-        if "business" in self.name:
+        if "business" in self.__name:
             return 7
-        elif "casual" in self.name:
+        elif "casual" in self.__name:
             return randint(1,2)
         else:
             return randint(3,5)
 
     def getNumItemsDesired(self):
         # how many Items to rent
-        if "business" in self.name:
+        if "business" in self.__name:
             return 3
-        elif "casual" in self.name:
-            if len(self.shoppingCart) ==2:
+        elif "casual" in self.__name:
+            if len(self.__shoppingCart) ==2:
                 return 1
             else:        
                 return randint(1, 2)
         else:
-            top = 3-self.currentNumItems
+            top = 3-self.__currentNumItems
             return randint(1, top)
 
 
     # return Items a customer has due on the specified day
     def returnItems(self, day):
         Items = []
-        for item in self.shoppingCart:
+        for item in self.__shoppingCart:
             if item.dayDue == day:
                 Items.append(item)
-                self.shoppingCart.remove(item)
+                self.__shoppingCart.remove(item)
         return Items
 
 
@@ -96,6 +96,9 @@ class Customer:
         for item in Items:
             paymentOwed += item.costPerDay * nights
         return paymentOwed
+
+    def getName(self):
+        return self.__name
 
 # Subclasses for the Superclass customer
 # these classes init with the Superclass values, but use their own max/min values
